@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">DeuFeiTage</string>
-    <string name="title_feitag_detail">Holydays</string>
+    <string name="title_feitag_detail">Feiertage</string>
     <string-array name="states_of_germany">
         <item>Baden-Württemberg</item>
-        <item>Bavaria</item>
+        <item>Bayern</item>
         <item>Berlin</item>
         <item>Brandenburg</item>
         <item>Bremen</item>
         <item>Hamburg</item>
-        <item>Hesse</item>
-        <item>Lower Saxony</item>
-        <item>Mecklenburg Western Pomerania</item>
-        <item>Northrhine-Westphalia</item>
-        <item>Rhineland Palatinate</item>
+        <item>Hessen</item>
+        <item>Niedersachsen</item>
+        <item>Mecklenburg-Vorpommern</item>
+        <item>Nordrhein-Westfalen</item>
+        <item>Rheinland-Pfalz</item>
         <item>Saarland</item>
-        <item>Saxony</item>
-        <item>Saxony-Anhalt</item>
+        <item>Sachsen</item>
+        <item>Sachsen-Anhalt</item>
         <item>Schleswig Holstein</item>
-        <item>Thuringia</item>
+        <item>Thüringen</item>
     </string-array>
 </resources>
