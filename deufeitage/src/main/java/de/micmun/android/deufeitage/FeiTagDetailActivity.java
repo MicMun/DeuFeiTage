@@ -23,6 +23,8 @@ import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.MenuItem;
 
+import de.micmun.android.deufeitage.util.StateItem;
+
 /**
  * An activity representing a single FeiTag detail screen. This
  * activity is only used on handset devices. On tablet-size devices,
@@ -62,8 +64,7 @@ public class FeiTagDetailActivity extends FragmentActivity {
          String title = getTitle().toString();
          String STATE_ID = getIntent().getStringExtra(FeiTagDetailFragment
                .ARG_ITEM_ID);
-         StateArrayAdapter.StateItem st = StateArrayAdapter.ITEM_MAP.get
-               (STATE_ID);
+         StateItem st = StateArrayAdapter.ITEM_MAP.get(STATE_ID);
          title += " " + st;
          setTitle(title);
 

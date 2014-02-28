@@ -24,6 +24,9 @@ import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
+import de.micmun.android.deufeitage.util.StateItem;
 
 /**
  * Array Adapter for a list of ITEMS with the short form as id.
@@ -31,10 +34,7 @@ import java.util.HashMap;
  * @author: Michael Munzert
  * @version: 1.0, 28.02.2014
  */
-public class StateArrayAdapter extends ArrayAdapter<StateArrayAdapter.StateItem> {
-   public static final String[] STATE_IDS = {"BW", "BY", "BE", "BB", "BR",
-         "HH", "HE", "NI", "MV", "NW", "RP", "SL", "SX", "SA", "SH", "TH"};
-
+public class StateArrayAdapter extends ArrayAdapter<StateItem> {
    /**
     * List of items.
     */
@@ -49,43 +49,13 @@ public class StateArrayAdapter extends ArrayAdapter<StateArrayAdapter.StateItem>
     *
     * @see android.widget.ArrayAdapter#ArrayAdapter(android.content.Context, int, int)
     */
-   public StateArrayAdapter(Context context, int resource, int textViewResourceId) {
-      super(context, resource, textViewResourceId, ITEMS);
+   public StateArrayAdapter(Context context, List<StateItem> objects) {
+      super(context, android.R.layout.simple_list_item_activated_1, objects);
 
-      String[] stateStrings = context.getResources().getStringArray(R.array
-            .states_of_germany);
-      for (int i = 0; i < stateStrings.length; ++i) {
-         addItem(new StateItem(STATE_IDS[i], stateStrings[i]));
-      }
-
-      notifyDataSetChanged();
-   }
-
-   /**
-    * Adds an item to the list and the map.
-    *
-    * @param item state with id and name.
-    */
-   private void addItem(StateItem item) {
-      ITEMS.add(item);
-      ITEM_MAP.put(item.id, item);
-   }
-
-   /**
-    * A dummy item representing a piece of content.
-    */
-   public static class StateItem {
-      public String id;
-      public String content;
-
-      public StateItem(String id, String content) {
-         this.id = id;
-         this.content = content;
-      }
-
-      @Override
-      public String toString() {
-         return content;
+      // save the objects to get the id and the name
+      for (StateItem si : objects) {
+         ITEMS.add(si);
+         ITEM_MAP.put(si.getId(), si);
       }
    }
 }

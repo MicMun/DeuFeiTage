@@ -24,6 +24,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import de.micmun.android.deufeitage.dummy.DummyContent;
+import de.micmun.android.deufeitage.util.StateItem;
 
 /**
  * A fragment representing a single FeiTag detail screen.
@@ -44,7 +45,7 @@ public class FeiTagDetailFragment extends Fragment {
    /**
     * The state content this fragment is presenting.
     */
-   private StateArrayAdapter.StateItem mItem;
+   private StateItem mItem;
 
    /**
     * Mandatory empty constructor for the fragment manager to instantiate the
@@ -64,7 +65,8 @@ public class FeiTagDetailFragment extends Fragment {
          // Load the dummy content specified by the fragment
          // arguments. In a real-world scenario, use a Loader
          // to load content from a content provider.
-         mItem = StateArrayAdapter.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+         mItem = StateArrayAdapter.ITEM_MAP.get(getArguments().getString
+               (ARG_ITEM_ID));
 
       }
    }
@@ -79,7 +81,8 @@ public class FeiTagDetailFragment extends Fragment {
 
       // Show the state content as text in a TextView.
       if (mItem != null) {
-         ((TextView) rootView.findViewById(R.id.feitag_detail)).setText(mItem.content);
+         ((TextView) rootView.findViewById(R.id.feitag_detail)).setText(mItem
+               .getName());
       }
 
       return rootView;

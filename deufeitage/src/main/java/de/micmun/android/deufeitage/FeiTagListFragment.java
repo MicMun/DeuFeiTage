@@ -6,6 +6,10 @@ import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
+import de.micmun.android.deufeitage.util.StateItem;
+
 /**
  * A list fragment representing a list of FeiTage. This fragment
  * also supports tablet devices by allowing list items to be given an
@@ -72,9 +76,17 @@ public class FeiTagListFragment extends ListFragment {
    public void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
 
-      setListAdapter(new StateArrayAdapter(getActivity(),
-            android.R.layout.simple_list_item_activated_1,
-            android.R.id.text1));
+      // create state items
+      String[] states = getResources().getStringArray(R.array
+            .states_of_germany);
+      ArrayList<StateItem> objects = new ArrayList<>(states.length);
+
+      for (int i = 0; i < states.length; ++i) {
+         objects.add(new StateItem(StateItem.ITEM_IDS[i], states[i]));
+      }
+
+      // set list adapter
+      setListAdapter(new StateArrayAdapter(getActivity(), objects));
    }
 
    /**
@@ -126,7 +138,7 @@ public class FeiTagListFragment extends ListFragment {
 
       // Notify the active callbacks interface (the activity, if the
       // fragment is attached to one) that an item has been selected.
-      mCallbacks.onItemSelected(StateArrayAdapter.ITEMS.get(position).id);
+      mCallbacks.onItemSelected(StateArrayAdapter.ITEMS.get(position).getId());
    }
 
    /**
