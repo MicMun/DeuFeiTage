@@ -157,6 +157,9 @@ public class FeiTagCalc {
       cals[18].set(year, Calendar.DECEMBER, 31);
 
       for (int i = 0; i < HOLYDAYS.length; ++i) {
+         cals[i].set(Calendar.HOUR_OF_DAY, 0);
+         cals[i].set(Calendar.MINUTE, 0);
+         cals[i].set(Calendar.SECOND, 0);
          holydayMap.put(HOLYDAYS[i], cals[i]);
       }
    }

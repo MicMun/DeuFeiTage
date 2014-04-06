@@ -21,9 +21,18 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Spinner;
 
-import de.micmun.android.deufeitage.dummy.DummyContent;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+
+import de.micmun.android.deufeitage.util.FeiTagCalc;
+import de.micmun.android.deufeitage.util.HolydayItem;
 import de.micmun.android.deufeitage.util.StateItem;
 
 /**
@@ -62,9 +71,8 @@ public class FeiTagDetailFragment extends Fragment {
       super.onCreate(savedInstanceState);
 
       if (getArguments().containsKey(ARG_ITEM_ID)) {
-         // Load the dummy content specified by the fragment
-         // arguments. In a real-world scenario, use a Loader
-         // to load content from a content provider.
+         // Load the state content specified by the fragment
+         // arguments.
          mItem = StateArrayAdapter.ITEM_MAP.get(getArguments().getString
                (ARG_ITEM_ID));
 
@@ -81,10 +89,69 @@ public class FeiTagDetailFragment extends Fragment {
 
       // Show the state content as text in a TextView.
       if (mItem != null) {
-         ((TextView) rootView.findViewById(R.id.feitag_detail)).setText(mItem
-               .getName());
+         // current year and the map of holydays.
+         int year = Calendar.getInstance().get(Calendar.YEAR);
+         final FeiTagCalc ftc = new FeiTagCalc(year);
+         final HashMap<String, Calendar> holydayMap = ftc.getHolydayMap();
+
+         // get the ressource from layout
+         final ListView lv = (ListView) rootView.findViewById(R.id
+               .holydayListId);
+         Spinner spinner = (Spinner) rootView.findViewById(R.id.spYear);
+
+         // year selection
+         ArrayList<Integer> lYears = new ArrayList<>();
+         for (int i = year - 4; i <= year + 6; ++i) {
+            lYears.add(i);
+         }
+         ArrayAdapter<Integer> yearAdapter = new ArrayAdapter<>(getActivity()
+               , android.R.layout.simple_spinner_item, lYears);
+         spinner.setAdapter(yearAdapter);
+         spinner.setSelection(yearAdapter.getPosition(year));
+         spinner.setOnItemSelectedListener(new AdapterView.
+               OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+               if (parent.getItemAtPosition(position) != null) {
+                  int selYear = (Integer) parent.getItemAtPosition(position);
+                  ftc.setYear(selYear);
+                  lv.setAdapter(null);
+                  lv.setAdapter(getHolydayAdapter(ftc));
+               }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+               // Do nothing
+            }
+         });
+
+         // Adapter setzen
+         lv.setAdapter(getHolydayAdapter(ftc));
       }
 
       return rootView;
+   }
+
+   /**
+    * Returns the adapter for the holyday list.
+    *
+    * @param calc FeiTagCalc with the holyday map.
+    * @return HolydayItemAdapter with the holyday list.
+    */
+   private HolydayItemAdapter getHolydayAdapter(FeiTagCalc calc) {
+      // list of holydays
+      HashMap<String, Calendar> holydayMap = calc.getHolydayMap();
+      ArrayList<HolydayItem> listOfHolyday = new ArrayList<>(holydayMap.size());
+      SimpleDateFormat df = new SimpleDateFormat("c, dd.MM.yyyy");
+
+      for (String k : FeiTagCalc.HOLYDAYS) {
+         HolydayItem hi = new HolydayItem(k,
+               df.format(holydayMap.get(k).getTime()));
+         listOfHolyday.add(hi);
+      }
+
+      return new HolydayItemAdapter(getActivity(), listOfHolyday);
    }
 }
