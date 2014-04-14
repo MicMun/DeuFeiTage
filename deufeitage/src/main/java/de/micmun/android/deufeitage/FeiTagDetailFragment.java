@@ -18,6 +18,7 @@ package de.micmun.android.deufeitage;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,12 +27,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
 import de.micmun.android.deufeitage.util.FeiTagCalc;
+import de.micmun.android.deufeitage.util.HolydayFilter;
 import de.micmun.android.deufeitage.util.HolydayItem;
 import de.micmun.android.deufeitage.util.StateItem;
 
@@ -50,6 +53,8 @@ public class FeiTagDetailFragment extends Fragment {
     * represents.
     */
    public static final String ARG_ITEM_ID = "item_id";
+
+   private final String TAG = "FeiTagDetailFragment";
 
    /**
     * The state content this fragment is presenting.
@@ -88,11 +93,10 @@ public class FeiTagDetailFragment extends Fragment {
       View rootView = inflater.inflate(R.layout.fragment_feitag_detail, container, false);
 
       // Show the state content as text in a TextView.
-      if (mItem != null) {
+      if (rootView != null && mItem != null) {
          // current year and the map of holydays.
          int year = Calendar.getInstance().get(Calendar.YEAR);
-         final FeiTagCalc ftc = new FeiTagCalc(year);
-         final HashMap<String, Calendar> holydayMap = ftc.getHolydayMap();
+         final FeiTagCalc ftc = new FeiTagCalc(getActivity(), year);
 
          // get the ressource from layout
          final ListView lv = (ListView) rootView.findViewById(R.id
@@ -146,10 +150,17 @@ public class FeiTagDetailFragment extends Fragment {
       ArrayList<HolydayItem> listOfHolyday = new ArrayList<>(holydayMap.size());
       SimpleDateFormat df = new SimpleDateFormat("c, dd.MM.yyyy");
 
-      for (String k : FeiTagCalc.HOLYDAYS) {
+      for (String k : calc.getHOLYDAYS()) {
          HolydayItem hi = new HolydayItem(k,
                df.format(holydayMap.get(k).getTime()));
          listOfHolyday.add(hi);
+      }
+
+      try {
+         HolydayFilter hf = new HolydayFilter(getActivity());
+         hf.getFilteredList(listOfHolyday, mItem.getId());
+      } catch (IOException e) {
+         Log.e(TAG, "ERROR: " + e.getLocalizedMessage());
       }
 
       return new HolydayItemAdapter(getActivity(), listOfHolyday);

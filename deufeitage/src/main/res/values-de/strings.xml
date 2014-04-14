@@ -20,4 +20,25 @@
         <item>Schleswig Holstein</item>
         <item>Thüringen</item>
     </string-array>
+    <string-array name="names_of_holydays">
+        <item>Neujahr</item>
+        <item>Heilige Drei Könige</item>
+        <item>Tag der Arbeit</item>
+        <item>Karfreitag</item>
+        <item>Ostersonntag</item>
+        <item>Ostermontag</item>
+        <item>Christi Himmelfahrt</item>
+        <item>Pfingstsonntag</item>
+        <item>Pfingstmontag</item>
+        <item>Fronleichnam</item>
+        <item>Friedensfest</item>
+        <item>Mariä Himmelfahrt</item>
+        <item>Tag der dt. Einheit</item>
+        <item>Allerheiligen</item>
+        <item>Buss- und Bettag</item>
+        <item>Heiliger Abend</item>
+        <item>1. Weihnachtsfeiertag</item>
+        <item>2. Weihnachtsfeiertag</item>
+        <item>Silvester</item>
+    </string-array>
 </resources>

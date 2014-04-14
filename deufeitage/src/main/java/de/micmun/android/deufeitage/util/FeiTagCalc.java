@@ -19,8 +19,12 @@
 
 package de.micmun.android.deufeitage.util;
 
+import android.content.Context;
+
 import java.util.Calendar;
 import java.util.HashMap;
+
+import de.micmun.android.deufeitage.R;
 
 /**
  * Calculates the holydays for a year.
@@ -29,35 +33,29 @@ import java.util.HashMap;
  * @version: 1.0, 09.03.14
  */
 public class FeiTagCalc {
-   /**
-    *
-    */
-   public static final String[] HOLYDAYS = {"Neujahr", "Heilige Drei Könige",
-         "Tag der Arbeit", "Karfreitag", "Ostersonntag", "Ostermontag",
-         "Christi Himmelfahrt", "Pfingstsonntag", "Pfingstmontag",
-         "Fronleichnam", "Friedensfest", "Mariä Himmelfahrt",
-         "Tag der dt. Einheit", "Allerheiligen", "Buss- und Bettag",
-         "Heiliger Abend", "1. Weihnachtsfeiertag",
-         "2. Weihnachtsfeiertag", "Silvester"};
+   private String[] HOLYDAYS;
    private int year;
    private HashMap<String, Calendar> holydayMap;
-
-   /**
-    * Creates a new FeiTagCalc with the current year.
-    */
-   public FeiTagCalc() {
-      year = Calendar.getInstance().get(Calendar.YEAR);
-      createHolydayMap();
-   }
 
    /**
     * Creates a new FeiTagCalc with the given year.
     *
     * @param year Year to calculate the holydays.
     */
-   public FeiTagCalc(int year) {
+   public FeiTagCalc(Context context, int year) {
       this.year = year;
+      HOLYDAYS = context.getResources().getStringArray(R.array
+            .names_of_holydays);
       createHolydayMap();
+   }
+
+   /**
+    * Returns the names of the holydays.
+    *
+    * @return names of the holydays.
+    */
+   public String[] getHOLYDAYS() {
+      return HOLYDAYS;
    }
 
    /**
