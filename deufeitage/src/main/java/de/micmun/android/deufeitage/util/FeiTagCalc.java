@@ -92,21 +92,21 @@ public class FeiTagCalc {
       // three kings
       cals[1] = Calendar.getInstance();
       cals[1].set(year, Calendar.JANUARY, 6);
-      // day of work
-      cals[2] = Calendar.getInstance();
-      cals[2].set(year, Calendar.MAY, 1);
       // karfriday
-      cals[3] = Calendar.getInstance();
-      cals[3].set(year, easterSunday.get(Calendar.MONTH),
+      cals[2] = Calendar.getInstance();
+      cals[2].set(year, easterSunday.get(Calendar.MONTH),
             easterSunday.get(Calendar.DAY_OF_MONTH));
-      cals[3].add(Calendar.DAY_OF_MONTH, -2);
+      cals[2].add(Calendar.DAY_OF_MONTH, -2);
       // easter sunday
-      cals[4] = easterSunday;
+      cals[3] = easterSunday;
       // easter monday
-      cals[5] = Calendar.getInstance();
-      cals[5].set(year, easterSunday.get(Calendar.MONTH),
+      cals[4] = Calendar.getInstance();
+      cals[4].set(year, easterSunday.get(Calendar.MONTH),
             easterSunday.get(Calendar.DAY_OF_MONTH));
-      cals[5].add(Calendar.DAY_OF_MONTH, 1);
+      cals[4].add(Calendar.DAY_OF_MONTH, 1);
+      // day of work
+      cals[5] = Calendar.getInstance();
+      cals[5].set(year, Calendar.MAY, 1);
       // christ to heaven
       cals[6] = Calendar.getInstance();
       cals[6].set(year, easterSunday.get(Calendar.MONTH),
@@ -127,32 +127,26 @@ public class FeiTagCalc {
       cals[9].set(year, easterSunday.get(Calendar.MONTH),
             easterSunday.get(Calendar.DAY_OF_MONTH));
       cals[9].add(Calendar.DAY_OF_MONTH, 60);
-      // party of piece
-      cals[10] = Calendar.getInstance();
-      cals[10].set(year, Calendar.AUGUST, 8);
       // Mariä to heaven
-      cals[11] = Calendar.getInstance();
-      cals[11].set(year, Calendar.AUGUST, 15);
+      cals[10] = Calendar.getInstance();
+      cals[10].set(year, Calendar.AUGUST, 15);
       // day of the german unit (national holyday)
+      cals[11] = Calendar.getInstance();
+      cals[11].set(year, Calendar.OCTOBER, 3);
+      // day of reformation
       cals[12] = Calendar.getInstance();
-      cals[12].set(year, Calendar.OCTOBER, 3);
+      cals[12].set(year, Calendar.OCTOBER, 31);
       // all holy
       cals[13] = Calendar.getInstance();
       cals[13].set(year, Calendar.NOVEMBER, 1);
       // Buss- und Bettag
       cals[14] = bubetDay;
-      // holy evening
-      cals[15] = Calendar.getInstance();
-      cals[15].set(year, Calendar.DECEMBER, 24);
       // 1. Weihnachtsfeiertag
-      cals[16] = Calendar.getInstance();
-      cals[16].set(year, Calendar.DECEMBER, 25);
+      cals[15] = Calendar.getInstance();
+      cals[15].set(year, Calendar.DECEMBER, 25);
       // 2. Weihnachtsfeiertag
-      cals[17] = Calendar.getInstance();
-      cals[17].set(year, Calendar.DECEMBER, 26);
-      // Silvester
-      cals[18] = Calendar.getInstance();
-      cals[18].set(year, Calendar.DECEMBER, 31);
+      cals[16] = Calendar.getInstance();
+      cals[16].set(year, Calendar.DECEMBER, 26);
 
       for (int i = 0; i < HOLYDAYS.length; ++i) {
          cals[i].set(Calendar.HOUR_OF_DAY, 0);

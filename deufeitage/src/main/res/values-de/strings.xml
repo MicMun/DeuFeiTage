@@ -10,8 +10,8 @@
         <item>Bremen</item>
         <item>Hamburg</item>
         <item>Hessen</item>
-        <item>Niedersachsen</item>
         <item>Mecklenburg-Vorpommern</item>
+        <item>Niedersachsen</item>
         <item>Nordrhein-Westfalen</item>
         <item>Rheinland-Pfalz</item>
         <item>Saarland</item>
@@ -23,22 +23,20 @@
     <string-array name="names_of_holydays">
         <item>Neujahr</item>
         <item>Heilige Drei Könige</item>
-        <item>Tag der Arbeit</item>
         <item>Karfreitag</item>
         <item>Ostersonntag</item>
         <item>Ostermontag</item>
+        <item>Tag der Arbeit</item>
         <item>Christi Himmelfahrt</item>
         <item>Pfingstsonntag</item>
         <item>Pfingstmontag</item>
         <item>Fronleichnam</item>
-        <item>Friedensfest</item>
         <item>Mariä Himmelfahrt</item>
         <item>Tag der dt. Einheit</item>
+        <item>Reformationstag</item>
         <item>Allerheiligen</item>
         <item>Buss- und Bettag</item>
-        <item>Heiliger Abend</item>
         <item>1. Weihnachtsfeiertag</item>
         <item>2. Weihnachtsfeiertag</item>
-        <item>Silvester</item>
     </string-array>
 </resources>

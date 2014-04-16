@@ -29,8 +29,8 @@ public class StateItem {
    /**
     * IDs for the states, id must be one of this.
     */
-   public static final String[] ITEM_IDS = {"BW", "BY", "BE", "BB", "BR",
-         "HH", "HE", "NI", "MV", "NW", "RP", "SL", "SX", "SA", "SH", "TH"};
+   public static final String[] ITEM_IDS = {"BW", "BY", "BE", "BB", "HB",
+         "HH", "HE", "MV", "NI", "NW", "RP", "SL", "SN", "ST", "SH", "TH"};
    private final String id;
    private final String name;
 

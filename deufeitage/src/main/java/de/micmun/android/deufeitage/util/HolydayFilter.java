@@ -65,10 +65,12 @@ public class HolydayFilter {
       Integer[] filter = filterMap.get(state);
       if (filter == null)
          return listItems;
+      int count = 0;
 
       for (int i = 0; i < filter.length; ++i) {
          if (filter[i] == 0) {
-            listItems.remove(i);
+            listItems.remove(i - count);
+            count++;
          }
       }
 
