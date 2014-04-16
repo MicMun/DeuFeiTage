@@ -16,6 +16,8 @@
  */
 package de.micmun.android.deufeitage;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -53,6 +55,10 @@ public class FeiTagDetailFragment extends Fragment {
     * represents.
     */
    public static final String ARG_ITEM_ID = "item_id";
+   /**
+    * The fragment argument representing the item YEAR for the holydays.
+    */
+   public static final String ARG_ITEM_YEAR = "item_year";
 
    private final String TAG = "FeiTagDetailFragment";
 
@@ -60,6 +66,8 @@ public class FeiTagDetailFragment extends Fragment {
     * The state content this fragment is presenting.
     */
    private StateItem mItem;
+
+   private int mYear;
 
    /**
     * Mandatory empty constructor for the fragment manager to instantiate the
@@ -80,7 +88,10 @@ public class FeiTagDetailFragment extends Fragment {
          // arguments.
          mItem = StateArrayAdapter.ITEM_MAP.get(getArguments().getString
                (ARG_ITEM_ID));
-
+         mYear = getArguments().getInt(ARG_ITEM_YEAR);
+         if (mYear == 0) {
+            mYear = Calendar.getInstance().get(Calendar.YEAR);
+         }
       }
    }
 
@@ -95,7 +106,7 @@ public class FeiTagDetailFragment extends Fragment {
       // Show the state content as text in a TextView.
       if (rootView != null && mItem != null) {
          // current year and the map of holydays.
-         int year = Calendar.getInstance().get(Calendar.YEAR);
+         int year = mYear;
          final FeiTagCalc ftc = new FeiTagCalc(getActivity(), year);
 
          // get the ressource from layout
@@ -122,6 +133,11 @@ public class FeiTagDetailFragment extends Fragment {
                   ftc.setYear(selYear);
                   lv.setAdapter(null);
                   lv.setAdapter(getHolydayAdapter(ftc));
+                  SharedPreferences sp = getActivity().getSharedPreferences
+                        (FeiTagListActivity.PREF_NAME, Context.MODE_PRIVATE);
+                  SharedPreferences.Editor editor = sp.edit();
+                  editor.putInt(FeiTagListActivity.KEY_YEAR, selYear);
+                  editor.commit();
                }
             }
 

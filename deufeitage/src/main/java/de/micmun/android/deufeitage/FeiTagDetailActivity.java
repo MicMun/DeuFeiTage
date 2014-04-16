@@ -17,10 +17,10 @@
 package de.micmun.android.deufeitage;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
-import android.util.Log;
 import android.view.MenuItem;
 
 import de.micmun.android.deufeitage.util.StateItem;
@@ -64,12 +64,15 @@ public class FeiTagDetailActivity extends FragmentActivity {
          String title = getTitle().toString();
          String STATE_ID = getIntent().getStringExtra(FeiTagDetailFragment
                .ARG_ITEM_ID);
+         int YEAR = getIntent().getIntExtra(FeiTagDetailFragment
+               .ARG_ITEM_YEAR, 0);
          StateItem st = StateArrayAdapter.ITEM_MAP.get(STATE_ID);
          title += " " + st;
          setTitle(title);
 
          Bundle arguments = new Bundle();
          arguments.putString(FeiTagDetailFragment.ARG_ITEM_ID, STATE_ID);
+         arguments.putInt(FeiTagDetailFragment.ARG_ITEM_YEAR, YEAR);
          FeiTagDetailFragment fragment = new FeiTagDetailFragment();
          fragment.setArguments(arguments);
          getSupportFragmentManager().beginTransaction()
@@ -92,6 +95,11 @@ public class FeiTagDetailActivity extends FragmentActivity {
          //
          // http://developer.android.com/design/patterns/navigation.html#up-vs-back
          //
+         SharedPreferences sp = getSharedPreferences(FeiTagListActivity
+               .PREF_NAME, MODE_PRIVATE);
+         SharedPreferences.Editor editor = sp.edit();
+         editor.putString(FeiTagListActivity.KEY_ID, null);
+         editor.commit();
          NavUtils.navigateUpTo(this, new Intent(this, FeiTagListActivity.class));
          return true;
       }
