@@ -16,6 +16,7 @@
  */
 package de.micmun.android.deufeitage;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -24,10 +25,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Spinner;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -36,8 +35,8 @@ import java.util.Calendar;
 import java.util.HashMap;
 
 import de.micmun.android.deufeitage.util.FeiTagCalc;
-import de.micmun.android.deufeitage.util.HolydayFilter;
-import de.micmun.android.deufeitage.util.HolydayItem;
+import de.micmun.android.deufeitage.util.HolidayFilter;
+import de.micmun.android.deufeitage.util.HolidayItem;
 import de.micmun.android.deufeitage.util.StateItem;
 
 /**
@@ -56,7 +55,7 @@ public class FeiTagDetailFragment extends Fragment {
     */
    public static final String ARG_ITEM_ID = "item_id";
    /**
-    * The fragment argument representing the item YEAR for the holydays.
+    * The fragment argument representing the item YEAR for the holidays.
     */
    public static final String ARG_ITEM_YEAR = "item_year";
 
@@ -68,6 +67,8 @@ public class FeiTagDetailFragment extends Fragment {
    private StateItem mItem;
 
    private int mYear;
+
+   private ActionBar mActionBar;
 
    /**
     * Mandatory empty constructor for the fragment manager to instantiate the
@@ -82,6 +83,9 @@ public class FeiTagDetailFragment extends Fragment {
    @Override
    public void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
+
+      mActionBar = getActivity().getActionBar();
+      mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
 
       if (getArguments().containsKey(ARG_ITEM_ID)) {
          // Load the state content specified by the fragment
@@ -105,80 +109,75 @@ public class FeiTagDetailFragment extends Fragment {
 
       // Show the state content as text in a TextView.
       if (rootView != null && mItem != null) {
-         // current year and the map of holydays.
+         // current year and the map of holidays.
          int year = mYear;
          final FeiTagCalc ftc = new FeiTagCalc(getActivity(), year);
 
          // get the ressource from layout
          final ListView lv = (ListView) rootView.findViewById(R.id
-               .holydayListId);
-         Spinner spinner = (Spinner) rootView.findViewById(R.id.spYear);
+               .holidayListId);
 
          // year selection
          ArrayList<Integer> lYears = new ArrayList<>();
          for (int i = year - 4; i <= year + 6; ++i) {
             lYears.add(i);
          }
-         ArrayAdapter<Integer> yearAdapter = new ArrayAdapter<>(getActivity()
-               , android.R.layout.simple_spinner_item, lYears);
-         spinner.setAdapter(yearAdapter);
-         spinner.setSelection(yearAdapter.getPosition(year));
-         spinner.setOnItemSelectedListener(new AdapterView.
-               OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int position, long id) {
-               if (parent.getItemAtPosition(position) != null) {
-                  int selYear = (Integer) parent.getItemAtPosition(position);
-                  ftc.setYear(selYear);
-                  lv.setAdapter(null);
-                  lv.setAdapter(getHolydayAdapter(ftc));
-                  SharedPreferences sp = getActivity().getSharedPreferences
-                        (FeiTagListActivity.PREF_NAME, Context.MODE_PRIVATE);
-                  SharedPreferences.Editor editor = sp.edit();
-                  editor.putInt(FeiTagListActivity.KEY_YEAR, selYear);
-                  editor.commit();
-               }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-               // Do nothing
-            }
-         });
+         final ArrayAdapter<Integer> yearAdapter = new ArrayAdapter<>(
+               mActionBar.getThemedContext(), android.R.layout.simple_spinner_item, lYears);
+         mActionBar.setListNavigationCallbacks(yearAdapter,
+               new ActionBar.OnNavigationListener() {
+                  @Override
+                  public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+                     if (yearAdapter.getItem(itemPosition) != null) {
+                        int selYear = yearAdapter.getItem(itemPosition);
+                        ftc.setYear(selYear);
+                        lv.setAdapter(null);
+                        lv.setAdapter(getHolidayAdapter(ftc));
+                        SharedPreferences sp = getActivity().getSharedPreferences
+                              (FeiTagListActivity.PREF_NAME, Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putInt(FeiTagListActivity.KEY_YEAR, selYear);
+                        editor.commit();
+                        return true;
+                     }
+                     return false;
+                  }
+               });
+         mActionBar.setSelectedNavigationItem(yearAdapter.getPosition(year));
 
          // Adapter setzen
-         lv.setAdapter(getHolydayAdapter(ftc));
+         lv.setAdapter(getHolidayAdapter(ftc));
       }
 
       return rootView;
    }
 
    /**
-    * Returns the adapter for the holyday list.
+    * Returns the adapter for the holiday list.
     *
-    * @param calc FeiTagCalc with the holyday map.
-    * @return HolydayItemAdapter with the holyday list.
+    * @param calc FeiTagCalc with the holiday map.
+    * @return HolidayItemAdapter with the holiday list.
     */
-   private HolydayItemAdapter getHolydayAdapter(FeiTagCalc calc) {
-      // list of holydays
-      HashMap<String, Calendar> holydayMap = calc.getHolydayMap();
-      ArrayList<HolydayItem> listOfHolyday = new ArrayList<>(holydayMap.size());
+   private HolidayItemAdapter getHolidayAdapter(FeiTagCalc calc) {
+      // list of holidays
+      HashMap<String, Calendar> holidayMap = calc.getHolidayMap();
+      ArrayList<HolidayItem> listOfHoliday = new ArrayList<>(holidayMap.size());
       SimpleDateFormat df = new SimpleDateFormat("c, dd.MM.yyyy");
 
-      for (String k : calc.getHOLYDAYS()) {
-         HolydayItem hi = new HolydayItem(k,
-               df.format(holydayMap.get(k).getTime()));
-         listOfHolyday.add(hi);
+      for (String k : calc.getHolidays()) {
+         HolidayItem hi = new HolidayItem(k,
+               df.format(holidayMap.get(k).getTime()));
+         listOfHoliday.add(hi);
       }
 
       try {
-         HolydayFilter hf = new HolydayFilter(getActivity());
-         hf.getFilteredList(listOfHolyday, mItem.getId());
+         HolidayFilter hf = new HolidayFilter(getActivity());
+         hf.getFilteredList(listOfHoliday, mItem.getId());
       } catch (IOException e) {
          Log.e(TAG, "ERROR: " + e.getLocalizedMessage());
       }
 
-      return new HolydayItemAdapter(getActivity(), listOfHolyday);
+      return new HolidayItemAdapter(getActivity(), listOfHoliday);
    }
+
 }

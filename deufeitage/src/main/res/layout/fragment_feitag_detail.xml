@@ -4,17 +4,8 @@
         android:orientation="vertical"
         xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <Spinner
-            android:id="@+id/spYear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textAlignment="center">
-
-    </Spinner>
-
     <ListView
-            android:id="@+id/holydayListId"
+            android:id="@+id/holidayListId"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"/>
 </LinearLayout>

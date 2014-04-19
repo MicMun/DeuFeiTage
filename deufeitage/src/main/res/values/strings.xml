@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">DeuFeiTage</string>
-    <string name="title_feitag_detail">Holydays</string>
+    <string name="title_feitag_detail">Holidays</string>
     <string-array name="states_of_germany">
         <item>Baden-Württemberg</item>
         <item>Bavaria</item>
@@ -21,7 +21,7 @@
         <item>Schleswig Holstein</item>
         <item>Thuringia</item>
     </string-array>
-    <string-array name="names_of_holydays">
+    <string-array name="names_of_holidays">
         <item>Neujahr</item>
         <item>Heilige Drei Könige</item>
         <item>Karfreitag</item>

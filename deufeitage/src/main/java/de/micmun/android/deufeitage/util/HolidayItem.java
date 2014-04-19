@@ -20,39 +20,39 @@
 package de.micmun.android.deufeitage.util;
 
 /**
- * One Holyday with name and date.
+ * One Holiday with name and date.
  *
  * @author: Michael Munzert
  * @version: 1.0, 06.04.14
  */
-public class HolydayItem {
+public class HolidayItem {
    private String name;
    private String date;
 
    /**
-    * Creates a new HolydayItem with name and date.
+    * Creates a new HolidayItem with name and date.
     *
-    * @param name name of the holyday.
-    * @param date date of the holyday.
+    * @param name name of the holiday.
+    * @param date date of the holiday.
     */
-   public HolydayItem(String name, String date) {
+   public HolidayItem(String name, String date) {
       this.name = name;
       this.date = date;
    }
 
    /**
-    * Returns the name of the holyday.
+    * Returns the name of the holiday.
     *
-    * @return name of the holyday.
+    * @return name of the holiday.
     */
    public String getName() {
       return name;
    }
 
    /**
-    * Returns the date of the holyday.
+    * Returns the date of the holiday.
     *
-    * @return date of the holyday.
+    * @return date of the holiday.
     */
    public String getDate() {
       return date;

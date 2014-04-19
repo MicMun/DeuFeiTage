@@ -27,65 +27,65 @@ import java.util.HashMap;
 import de.micmun.android.deufeitage.R;
 
 /**
- * Calculates the holydays for a year.
+ * Calculates the holidays for a year.
  *
  * @author: Michael Munzert
  * @version: 1.0, 09.03.14
  */
 public class FeiTagCalc {
-   private String[] HOLYDAYS;
+   private String[] holidays;
    private int year;
-   private HashMap<String, Calendar> holydayMap;
+   private HashMap<String, Calendar> holidayMap;
 
    /**
     * Creates a new FeiTagCalc with the given year.
     *
-    * @param year Year to calculate the holydays.
+    * @param year Year to calculate the holidays.
     */
    public FeiTagCalc(Context context, int year) {
       this.year = year;
-      HOLYDAYS = context.getResources().getStringArray(R.array
-            .names_of_holydays);
-      createHolydayMap();
+      holidays = context.getResources().getStringArray(R.array
+            .names_of_holidays);
+      createHolidayMap();
    }
 
    /**
-    * Returns the names of the holydays.
+    * Returns the names of the holidays.
     *
-    * @return names of the holydays.
+    * @return names of the holidays.
     */
-   public String[] getHOLYDAYS() {
-      return HOLYDAYS;
+   public String[] getHolidays() {
+      return holidays;
    }
 
    /**
     * Setter for the year.
     *
-    * @param year Year to calculate the holydays.
+    * @param year Year to calculate the holidays.
     */
    public void setYear(int year) {
       this.year = year;
-      createHolydayMap();
+      createHolidayMap();
    }
 
    /**
-    * Getter for the current holyday map.
+    * Getter for the current holiday map.
     *
-    * @return Current holyday map.
+    * @return Current holiday map.
     */
-   public HashMap<String, Calendar> getHolydayMap() {
-      return holydayMap;
+   public HashMap<String, Calendar> getHolidayMap() {
+      return holidayMap;
    }
 
    /**
-    * Creates the map with holyday name and calendar.
+    * Creates the map with holiday name and calendar.
     */
-   private void createHolydayMap() {
-      holydayMap = new HashMap<>();
+   private void createHolidayMap() {
+      holidayMap = new HashMap<>();
       Calendar easterSunday = getEasterSunday();
       Calendar bubetDay = getBuBetDay(easterSunday);
 
-      Calendar[] cals = new Calendar[HOLYDAYS.length];
+      Calendar[] cals = new Calendar[holidays.length];
       // new year
       cals[0] = Calendar.getInstance();
       cals[0].set(year, Calendar.JANUARY, 1);
@@ -130,7 +130,7 @@ public class FeiTagCalc {
       // Mariä to heaven
       cals[10] = Calendar.getInstance();
       cals[10].set(year, Calendar.AUGUST, 15);
-      // day of the german unit (national holyday)
+      // day of the german unit (national holiday)
       cals[11] = Calendar.getInstance();
       cals[11].set(year, Calendar.OCTOBER, 3);
       // day of reformation
@@ -148,11 +148,11 @@ public class FeiTagCalc {
       cals[16] = Calendar.getInstance();
       cals[16].set(year, Calendar.DECEMBER, 26);
 
-      for (int i = 0; i < HOLYDAYS.length; ++i) {
+      for (int i = 0; i < holidays.length; ++i) {
          cals[i].set(Calendar.HOUR_OF_DAY, 0);
          cals[i].set(Calendar.MINUTE, 0);
          cals[i].set(Calendar.SECOND, 0);
-         holydayMap.put(HOLYDAYS[i], cals[i]);
+         holidayMap.put(holidays[i], cals[i]);
       }
    }
 
