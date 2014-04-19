@@ -142,7 +142,8 @@ public class FeiTagDetailFragment extends Fragment {
                      }
                      return false;
                   }
-               });
+               }
+         );
          mActionBar.setSelectedNavigationItem(yearAdapter.getPosition(year));
 
          // Adapter setzen

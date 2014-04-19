@@ -100,5 +100,7 @@ public class HolidayFilter {
 
          filterMap.put(key, filterInt);
       }
+
+      br.close();
    }
 }
