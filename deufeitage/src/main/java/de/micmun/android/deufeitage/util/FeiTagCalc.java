@@ -33,7 +33,7 @@ import de.micmun.android.deufeitage.R;
  * @version: 1.0, 09.03.14
  */
 public class FeiTagCalc {
-   private String[] HolidayS;
+   private String[] holidays;
    private int year;
    private HashMap<String, Calendar> holidayMap;
 
@@ -44,7 +44,7 @@ public class FeiTagCalc {
     */
    public FeiTagCalc(Context context, int year) {
       this.year = year;
-      HolidayS = context.getResources().getStringArray(R.array
+      holidays = context.getResources().getStringArray(R.array
             .names_of_holidays);
       createHolidayMap();
    }
@@ -54,8 +54,8 @@ public class FeiTagCalc {
     *
     * @return names of the holidays.
     */
-   public String[] getHolidayS() {
-      return HolidayS;
+   public String[] getHolidays() {
+      return holidays;
    }
 
    /**
@@ -85,7 +85,7 @@ public class FeiTagCalc {
       Calendar easterSunday = getEasterSunday();
       Calendar bubetDay = getBuBetDay(easterSunday);
 
-      Calendar[] cals = new Calendar[HolidayS.length];
+      Calendar[] cals = new Calendar[holidays.length];
       // new year
       cals[0] = Calendar.getInstance();
       cals[0].set(year, Calendar.JANUARY, 1);
@@ -148,11 +148,11 @@ public class FeiTagCalc {
       cals[16] = Calendar.getInstance();
       cals[16].set(year, Calendar.DECEMBER, 26);
 
-      for (int i = 0; i < HolidayS.length; ++i) {
+      for (int i = 0; i < holidays.length; ++i) {
          cals[i].set(Calendar.HOUR_OF_DAY, 0);
          cals[i].set(Calendar.MINUTE, 0);
          cals[i].set(Calendar.SECOND, 0);
-         holidayMap.put(HolidayS[i], cals[i]);
+         holidayMap.put(holidays[i], cals[i]);
       }
    }
 

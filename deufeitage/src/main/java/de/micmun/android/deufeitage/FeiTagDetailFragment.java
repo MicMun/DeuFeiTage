@@ -164,7 +164,7 @@ public class FeiTagDetailFragment extends Fragment {
       ArrayList<HolidayItem> listOfHoliday = new ArrayList<>(holidayMap.size());
       SimpleDateFormat df = new SimpleDateFormat("c, dd.MM.yyyy");
 
-      for (String k : calc.getHolidayS()) {
+      for (String k : calc.getHolidays()) {
          HolidayItem hi = new HolidayItem(k,
                df.format(holidayMap.get(k).getTime()));
          listOfHoliday.add(hi);
