@@ -70,6 +70,8 @@ public class FeiTagDetailFragment extends Fragment {
 
    private ActionBar mActionBar;
 
+   private HolidayFilter mFilter = null;
+
    /**
     * Mandatory empty constructor for the fragment manager to instantiate the
     * fragment (e.g. upon screen orientation changes).
@@ -142,7 +144,8 @@ public class FeiTagDetailFragment extends Fragment {
                      }
                      return false;
                   }
-               });
+               }
+         );
          mActionBar.setSelectedNavigationItem(yearAdapter.getPosition(year));
 
          // Adapter setzen
@@ -171,8 +174,9 @@ public class FeiTagDetailFragment extends Fragment {
       }
 
       try {
-         HolidayFilter hf = new HolidayFilter(getActivity());
-         hf.getFilteredList(listOfHoliday, mItem.getId());
+         if (mFilter == null)
+            mFilter = new HolidayFilter(getActivity());
+         mFilter.getFilteredList(listOfHoliday, mItem.getId());
       } catch (IOException e) {
          Log.e(TAG, "ERROR: " + e.getLocalizedMessage());
       }
