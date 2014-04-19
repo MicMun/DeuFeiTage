@@ -53,28 +53,24 @@ public class HolidayFilter {
    }
 
    /**
-    * Returns the filtered list of holidays.
+    * Filters the list of holidays.
     *
     * @param listItems list of holidays.
     * @param state     State of germany is the key of filter.
-    * @return filtered list of holidays.
     */
-   public ArrayList<HolidayItem> getFilteredList(ArrayList<HolidayItem>
-                                                       listItems,
-                                                 String state) {
+   public void getFilteredList(ArrayList<HolidayItem> listItems, String state) {
       Integer[] filter = filterMap.get(state);
-      if (filter == null)
-         return listItems;
-      int count = 0;
+      // With filter for selected state
+      if (filter != null) {
+         int count = 0;
 
-      for (int i = 0; i < filter.length; ++i) {
-         if (filter[i] == 0) {
-            listItems.remove(i - count);
-            count++;
+         for (int i = 0; i < filter.length; ++i) {
+            if (filter[i] == 0) { // if no holiday in state
+               listItems.remove(i - count);
+               count++;
+            }
          }
       }
-
-      return listItems;
    }
 
    /**
