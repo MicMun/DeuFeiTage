@@ -96,7 +96,6 @@ public class FeiTagDetailFragment extends Fragment {
          if (mYear == 0) {
             mYear = Calendar.getInstance().get(Calendar.YEAR);
          }
-         Log.d(TAG, "mYear=" + mYear);
       }
    }
 
@@ -131,7 +130,6 @@ public class FeiTagDetailFragment extends Fragment {
                   public boolean onNavigationItemSelected(int itemPosition, long itemId) {
                      if (yearAdapter.getItem(itemPosition) != null) {
                         int selYear = yearAdapter.getItem(itemPosition);
-                        Log.d(TAG, "selYear=" + selYear);
                         ftc.setYear(selYear);
                         lv.setAdapter(null);
                         lv.setAdapter(getHolydayAdapter(ftc));
@@ -142,7 +140,6 @@ public class FeiTagDetailFragment extends Fragment {
                         editor.commit();
                         return true;
                      }
-                     Log.d(TAG, "returned false");
                      return false;
                   }
                });
