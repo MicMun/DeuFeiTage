@@ -16,6 +16,7 @@
  */
 package de.micmun.android.deufeitage;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -24,10 +25,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Spinner;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -69,6 +68,8 @@ public class FeiTagDetailFragment extends Fragment {
 
    private int mYear;
 
+   private ActionBar mActionBar;
+
    /**
     * Mandatory empty constructor for the fragment manager to instantiate the
     * fragment (e.g. upon screen orientation changes).
@@ -83,6 +84,9 @@ public class FeiTagDetailFragment extends Fragment {
    public void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
 
+      mActionBar = getActivity().getActionBar();
+      mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+
       if (getArguments().containsKey(ARG_ITEM_ID)) {
          // Load the state content specified by the fragment
          // arguments.
@@ -92,6 +96,7 @@ public class FeiTagDetailFragment extends Fragment {
          if (mYear == 0) {
             mYear = Calendar.getInstance().get(Calendar.YEAR);
          }
+         Log.d(TAG, "mYear=" + mYear);
       }
    }
 
@@ -112,40 +117,36 @@ public class FeiTagDetailFragment extends Fragment {
          // get the ressource from layout
          final ListView lv = (ListView) rootView.findViewById(R.id
                .holydayListId);
-         Spinner spinner = (Spinner) rootView.findViewById(R.id.spYear);
 
          // year selection
          ArrayList<Integer> lYears = new ArrayList<>();
          for (int i = year - 4; i <= year + 6; ++i) {
             lYears.add(i);
          }
-         ArrayAdapter<Integer> yearAdapter = new ArrayAdapter<>(getActivity()
-               , android.R.layout.simple_spinner_item, lYears);
-         spinner.setAdapter(yearAdapter);
-         spinner.setSelection(yearAdapter.getPosition(year));
-         spinner.setOnItemSelectedListener(new AdapterView.
-               OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int position, long id) {
-               if (parent.getItemAtPosition(position) != null) {
-                  int selYear = (Integer) parent.getItemAtPosition(position);
-                  ftc.setYear(selYear);
-                  lv.setAdapter(null);
-                  lv.setAdapter(getHolydayAdapter(ftc));
-                  SharedPreferences sp = getActivity().getSharedPreferences
-                        (FeiTagListActivity.PREF_NAME, Context.MODE_PRIVATE);
-                  SharedPreferences.Editor editor = sp.edit();
-                  editor.putInt(FeiTagListActivity.KEY_YEAR, selYear);
-                  editor.commit();
-               }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-               // Do nothing
-            }
-         });
+         final ArrayAdapter<Integer> yearAdapter = new ArrayAdapter<>(
+               mActionBar.getThemedContext(), android.R.layout.simple_spinner_item, lYears);
+         mActionBar.setListNavigationCallbacks(yearAdapter,
+               new ActionBar.OnNavigationListener() {
+                  @Override
+                  public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+                     if (yearAdapter.getItem(itemPosition) != null) {
+                        int selYear = yearAdapter.getItem(itemPosition);
+                        Log.d(TAG, "selYear=" + selYear);
+                        ftc.setYear(selYear);
+                        lv.setAdapter(null);
+                        lv.setAdapter(getHolydayAdapter(ftc));
+                        SharedPreferences sp = getActivity().getSharedPreferences
+                              (FeiTagListActivity.PREF_NAME, Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putInt(FeiTagListActivity.KEY_YEAR, selYear);
+                        editor.commit();
+                        return true;
+                     }
+                     Log.d(TAG, "returned false");
+                     return false;
+                  }
+               });
+         mActionBar.setSelectedNavigationItem(yearAdapter.getPosition(year));
 
          // Adapter setzen
          lv.setAdapter(getHolydayAdapter(ftc));
@@ -181,4 +182,5 @@ public class FeiTagDetailFragment extends Fragment {
 
       return new HolydayItemAdapter(getActivity(), listOfHolyday);
    }
+
 }
