@@ -20,7 +20,7 @@
         <item>Schleswig Holstein</item>
         <item>Thüringen</item>
     </string-array>
-    <string-array name="names_of_holydays">
+    <string-array name="names_of_holidays">
         <item>Neujahr</item>
         <item>Heilige Drei Könige</item>
         <item>Karfreitag</item>

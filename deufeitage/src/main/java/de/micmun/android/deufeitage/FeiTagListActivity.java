@@ -32,9 +32,9 @@ import de.micmun.android.deufeitage.util.StateItem;
  * has different presentations for handset and tablet-size devices. On
  * handsets, the activity presents a list of items, which when touched,
  * lead to a {@link FeiTagDetailActivity} representing
- * item details (= holydays in this state). On tablets, the activity presents
+ * item details (= holidays in this state). On tablets, the activity presents
  * the list of items and
- * item details (= holydays in this state) side-by-side using two vertical
+ * item details (= holidays in this state) side-by-side using two vertical
  * panes.
  * <p/>
  * The activity makes heavy use of fragments. The list of items is a

@@ -28,23 +28,23 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import de.micmun.android.deufeitage.util.HolydayItem;
+import de.micmun.android.deufeitage.util.HolidayItem;
 
 /**
- * Adapter for a list of holydays.
+ * Adapter for a list of holidays.
  *
  * @author: Michael Munzert
  * @version: 1.0, 06.04.14
  */
-public class HolydayItemAdapter extends ArrayAdapter<HolydayItem> {
+public class HolidayItemAdapter extends ArrayAdapter<HolidayItem> {
    /**
-    * Creates a new HolydayItemAdapter with context and a list of holyday.
+    * Creates a new HolidayItemAdapter with context and a list of holiday.
     *
     * @param context  context of the app.
-    * @param holydays list of holydays.
+    * @param holidays list of holidays.
     */
-   public HolydayItemAdapter(Context context, ArrayList<HolydayItem> holydays) {
-      super(context, R.layout.row_holyday_item, holydays);
+   public HolidayItemAdapter(Context context, ArrayList<HolidayItem> holidays) {
+      super(context, R.layout.row_holiday_item, holidays);
    }
 
    /**
@@ -53,11 +53,11 @@ public class HolydayItemAdapter extends ArrayAdapter<HolydayItem> {
    @Override
    public View getView(int position, View convertView, ViewGroup parent) {
       // Get the data item for this position
-      HolydayItem hitem = getItem(position);
+      HolidayItem hitem = getItem(position);
       // Check if an existing view is being reused, otherwise inflate the view
       if (convertView == null) {
          convertView = LayoutInflater.from(getContext()).inflate(
-               R.layout.row_holyday_item, null);
+               R.layout.row_holiday_item, null);
       }
       // Lookup view for data population
       TextView tvName = (TextView) convertView.findViewById(R.id.tvName);

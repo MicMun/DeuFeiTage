@@ -30,36 +30,36 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Filter for holydays in a state of germany.
+ * Filter for holidays in a state of germany.
  *
  * @author MicMun
  * @version 1.0, 14.04.2014
  */
-public class HolydayFilter {
-   private final String CONFIG_FILE = "holydayForStates.txt";
+public class HolidayFilter {
+   private final String CONFIG_FILE = "holidayForStates.txt";
    private final Context mCtx;
    private HashMap<String, Integer[]> filterMap;
 
    /**
-    * Creates a new HolydayFilter with Context.
+    * Creates a new HolidayFilter with Context.
     *
     * @param context Context of app.
     * @throws IOException if config file can't be read.
     */
-   public HolydayFilter(Context context) throws IOException {
+   public HolidayFilter(Context context) throws IOException {
       mCtx = context;
       filterMap = new HashMap<>();
       readFile();
    }
 
    /**
-    * Returns the filtered list of holydays.
+    * Returns the filtered list of holidays.
     *
-    * @param listItems list of holydays.
+    * @param listItems list of holidays.
     * @param state     State of germany is the key of filter.
-    * @return filtered list of holydays.
+    * @return filtered list of holidays.
     */
-   public ArrayList<HolydayItem> getFilteredList(ArrayList<HolydayItem>
+   public ArrayList<HolidayItem> getFilteredList(ArrayList<HolidayItem>
                                                        listItems,
                                                  String state) {
       Integer[] filter = filterMap.get(state);
