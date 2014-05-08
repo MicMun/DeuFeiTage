@@ -2,7 +2,14 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+       <item name="android:actionBarStyle">@style/AppTheme.ActionBar</item>
         <!-- Customize your theme here. -->
     </style>
+
+   <!-- ActionBar: background -->
+   <style name="AppTheme.ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+      <item name="android:background">@drawable/ab_background</item>
+      <item name="android:displayOptions">useLogo|showHome|showTitle</item>
+   </style>
 
 </resources>
