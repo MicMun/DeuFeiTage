@@ -38,6 +38,8 @@ import de.micmun.android.deufeitage.util.StateItem;
  * @version 1.0, 28.02.2014
  */
 public class FeiTagDetailActivity extends FragmentActivity {
+   private static final String FRAG_TAG = "CURRENT_STATE";
+
    /**
     * @see android.support.v4.app.FragmentActivity#onCreate(android.os.Bundle)
     */
@@ -48,6 +50,10 @@ public class FeiTagDetailActivity extends FragmentActivity {
 
       // Show the Up button in the action bar.
       getActionBar().setDisplayHomeAsUpEnabled(true);
+
+      String title;
+      String stateItemId;
+      StateItem stateItem = null;
 
       // savedInstanceState is non-null when there is fragment state
       // saved from previous configurations of this activity
@@ -61,24 +67,33 @@ public class FeiTagDetailActivity extends FragmentActivity {
       if (savedInstanceState == null) {
          // Create the detail fragment and add it to the activity
          // using a fragment transaction.
-         String title = getTitle().toString();
-         String STATE_ID = getIntent().getStringExtra(FeiTagDetailFragment
+         stateItemId = getIntent().getStringExtra(FeiTagDetailFragment
                .ARG_ITEM_ID);
-         int YEAR = getIntent().getIntExtra(FeiTagDetailFragment
+         int year = getIntent().getIntExtra(FeiTagDetailFragment
                .ARG_ITEM_YEAR, 0);
-         StateItem st = StateArrayAdapter.ITEM_MAP.get(STATE_ID);
-         title += " " + st;
-         setTitle(title);
+         stateItem = StateArrayAdapter.ITEM_MAP.get(stateItemId);
 
          Bundle arguments = new Bundle();
-         arguments.putString(FeiTagDetailFragment.ARG_ITEM_ID, STATE_ID);
-         arguments.putInt(FeiTagDetailFragment.ARG_ITEM_YEAR, YEAR);
+         arguments.putString(FeiTagDetailFragment.ARG_ITEM_ID, stateItemId);
+         arguments.putInt(FeiTagDetailFragment.ARG_ITEM_YEAR, year);
          FeiTagDetailFragment fragment = new FeiTagDetailFragment();
          fragment.setArguments(arguments);
          getSupportFragmentManager().beginTransaction()
-               .add(R.id.feitag_detail_container, fragment)
+               .add(R.id.feitag_detail_container, fragment, FRAG_TAG)
                .commit();
+      } else {
+         FeiTagDetailFragment ftdf = (FeiTagDetailFragment)
+               getSupportFragmentManager().findFragmentByTag(FRAG_TAG);
+         if (ftdf != null) {
+            stateItemId = ftdf.getArguments().getString(FeiTagDetailFragment
+                  .ARG_ITEM_ID);
+            stateItem = StateArrayAdapter.ITEM_MAP.get(stateItemId);
+         }
       }
+      title = getTitle().toString();
+      if (stateItem != null)
+         title += " " + stateItem;
+      setTitle(title);
    }
 
    /**
