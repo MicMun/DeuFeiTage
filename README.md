@@ -12,7 +12,7 @@ Dieses GitHub Repository hostet den Code der Android-App _DeuFeiTage_. _DeuFeiTa
 
 ## Compatibility
 
-This app is compatible from sdk version 14 (Android 4.0) upward.
+This app is compatible from sdk version 14 (Android 4.0) upward and requires [HorizontalVariableListView](https://github.com/sephiroth74/HorizontalVariableListView) to compile.
 
 ## License
 
