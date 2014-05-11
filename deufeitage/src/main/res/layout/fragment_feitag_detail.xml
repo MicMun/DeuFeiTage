@@ -4,6 +4,14 @@
         android:orientation="vertical"
         xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <it.sephiroth.android.library.widget.HListView
+            android:id="@+id/hListView1"
+            android:layout_width="match_parent"
+            android:layout_height="80dip"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            android:background="#11000000"/>
+
     <ListView
             android:id="@+id/holidayListId"
             android:layout_width="match_parent"

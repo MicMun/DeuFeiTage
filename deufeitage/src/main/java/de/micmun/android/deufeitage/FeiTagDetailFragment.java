@@ -16,7 +16,6 @@
  */
 package de.micmun.android.deufeitage;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -33,11 +32,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 
 import de.micmun.android.deufeitage.util.FeiTagCalc;
 import de.micmun.android.deufeitage.util.HolidayFilter;
 import de.micmun.android.deufeitage.util.HolidayItem;
 import de.micmun.android.deufeitage.util.StateItem;
+import it.sephiroth.android.library.widget.AdapterView;
+import it.sephiroth.android.library.widget.HListView;
 
 /**
  * A fragment representing a single FeiTag detail screen.
@@ -65,12 +67,9 @@ public class FeiTagDetailFragment extends Fragment {
     * The state content this fragment is presenting.
     */
    private StateItem mItem;
-
-   private int mYear;
-
-   private ActionBar mActionBar;
-
+   private int mYear = 0;
    private HolidayFilter mFilter = null;
+   private ArrayAdapter<Integer> mAdapter;
 
    /**
     * Mandatory empty constructor for the fragment manager to instantiate the
@@ -86,18 +85,16 @@ public class FeiTagDetailFragment extends Fragment {
    public void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
 
-      mActionBar = getActivity().getActionBar();
-      mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-
       if (getArguments().containsKey(ARG_ITEM_ID)) {
          // Load the state content specified by the fragment
          // arguments.
          mItem = StateArrayAdapter.ITEM_MAP.get(getArguments().getString
                (ARG_ITEM_ID));
          mYear = getArguments().getInt(ARG_ITEM_YEAR);
-         if (mYear == 0) {
-            mYear = Calendar.getInstance().get(Calendar.YEAR);
-         }
+      }
+
+      if (mYear == 0) {
+         mYear = Calendar.getInstance().get(Calendar.YEAR);
       }
    }
 
@@ -107,46 +104,50 @@ public class FeiTagDetailFragment extends Fragment {
    @Override
    public View onCreateView(LayoutInflater inflater, ViewGroup container,
                             Bundle savedInstanceState) {
-      View rootView = inflater.inflate(R.layout.fragment_feitag_detail, container, false);
+      View rootView = inflater.inflate(R.layout.fragment_feitag_detail,
+            container, false);
 
       // Show the state content as text in a TextView.
       if (rootView != null && mItem != null) {
-         // current year and the map of holidays.
-         int year = mYear;
-         final FeiTagCalc ftc = new FeiTagCalc(getActivity(), year);
-
+         // calculation the map of holidays.
+         final FeiTagCalc ftc = new FeiTagCalc(getActivity(), mYear);
          // get the ressource from layout
          final ListView lv = (ListView) rootView.findViewById(R.id
                .holidayListId);
 
-         // year selection
-         ArrayList<Integer> lYears = new ArrayList<>();
-         for (int i = year - 4; i <= year + 6; ++i) {
-            lYears.add(i);
+         // create the list selection in horizontal list view
+         List<Integer> yearList = new ArrayList<>(10);
+         for (int i = mYear - 4; i <= mYear + 5; ++i) {
+            yearList.add(i);
          }
-         final ArrayAdapter<Integer> yearAdapter = new ArrayAdapter<>(
-               mActionBar.getThemedContext(), android.R.layout.simple_spinner_item, lYears);
-         mActionBar.setListNavigationCallbacks(yearAdapter,
-               new ActionBar.OnNavigationListener() {
-                  @Override
-                  public boolean onNavigationItemSelected(int itemPosition, long itemId) {
-                     if (yearAdapter.getItem(itemPosition) != null) {
-                        int selYear = yearAdapter.getItem(itemPosition);
-                        ftc.setYear(selYear);
-                        lv.setAdapter(null);
-                        lv.setAdapter(getHolidayAdapter(ftc));
-                        SharedPreferences sp = getActivity().getSharedPreferences
-                              (FeiTagListActivity.PREF_NAME, Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sp.edit();
-                        editor.putInt(FeiTagListActivity.KEY_YEAR, selYear);
-                        editor.commit();
-                        return true;
-                     }
-                     return false;
-                  }
-               }
-         );
-         mActionBar.setSelectedNavigationItem(yearAdapter.getPosition(year));
+         mAdapter = new ArrayAdapter<>(getActivity(),
+               R.layout.year_item, R.id.yearSelectTV, yearList);
+
+         HListView mListView = (HListView) rootView.findViewById(R.id.hListView1);
+         mListView.setHeaderDividersEnabled(false);
+         mListView.setFooterDividersEnabled(false);
+         mListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+
+         // analyse the selected year and change the holiday dates
+         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view,
+                                    int i, long l) {
+               mYear = mAdapter.getItem(i);
+               ftc.setYear(mYear);
+               lv.setAdapter(null);
+               lv.setAdapter(getHolidayAdapter(ftc));
+               SharedPreferences sp = getActivity().getSharedPreferences
+                     (FeiTagListActivity.PREF_NAME, Context.MODE_PRIVATE);
+               SharedPreferences.Editor editor = sp.edit();
+               editor.putInt(FeiTagListActivity.KEY_YEAR, mYear);
+               editor.commit();
+            }
+         });
+         mListView.setAdapter(mAdapter);
+         int pos = mAdapter.getPosition(mYear);
+         mListView.setItemChecked(pos, true);
+         mListView.smoothScrollToPosition(pos);
 
          // Adapter setzen
          lv.setAdapter(getHolidayAdapter(ftc));
@@ -183,5 +184,4 @@ public class FeiTagDetailFragment extends Fragment {
 
       return new HolidayItemAdapter(getActivity(), listOfHoliday);
    }
-
 }
