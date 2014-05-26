@@ -22,22 +22,22 @@
         <item>Thuringia</item>
     </string-array>
     <string-array name="names_of_holidays">
-        <item>Neujahr</item>
-        <item>Heilige Drei Könige</item>
-        <item>Karfreitag</item>
-        <item>Ostersonntag</item>
-        <item>Ostermontag</item>
-        <item>Tag der Arbeit</item>
-        <item>Christi Himmelfahrt</item>
-        <item>Pfingstsonntag</item>
-        <item>Pfingstmontag</item>
-        <item>Fronleichnam</item>
-        <item>Mariä Himmelfahrt</item>
-        <item>Tag der dt. Einheit</item>
-        <item>Reformationstag</item>
-        <item>Allerheiligen</item>
-        <item>Buss- und Bettag</item>
-        <item>1. Weihnachtsfeiertag</item>
-        <item>2. Weihnachtsfeiertag</item>
+        <item>New Year's Day</item>
+        <item>Epiphany</item>
+        <item>Good Friday</item>
+        <item>Easter Sunday</item>
+        <item>Easter Monday</item>
+        <item>Labour Day</item>
+        <item>Ascension Day</item>
+        <item>Whit Sunday</item>
+        <item>Whit Monday</item>
+        <item>Corpus Christi</item>
+        <item>Assumption of Mary</item>
+        <item>Day of German Unity</item>
+        <item>Reformation Day</item>
+        <item>All Saints' Day</item>
+        <item>Day of Prayer and Repentance</item>
+        <item>Christmas Day</item>
+        <item>Boxing Day</item>
     </string-array>
 </resources>
