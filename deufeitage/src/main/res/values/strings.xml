@@ -22,7 +22,7 @@
         <item>Thuringia</item>
     </string-array>
     <string-array name="names_of_holidays">
-        <item>New Year's Day</item>
+        <item>New Year\'s Day</item>
         <item>Epiphany</item>
         <item>Good Friday</item>
         <item>Easter Sunday</item>
@@ -35,7 +35,7 @@
         <item>Assumption of Mary</item>
         <item>Day of German Unity</item>
         <item>Reformation Day</item>
-        <item>All Saints' Day</item>
+        <item>All Saints\' Day</item>
         <item>Day of Prayer and Repentance</item>
         <item>Christmas Day</item>
         <item>Boxing Day</item>
