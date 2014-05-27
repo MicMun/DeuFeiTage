@@ -117,7 +117,8 @@ public class FeiTagDetailFragment extends Fragment {
 
          // create the list selection in horizontal list view
          List<Integer> yearList = new ArrayList<>(10);
-         for (int i = mYear - 4; i <= mYear + 5; ++i) {
+         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+         for (int i = currentYear - 4; i <= currentYear + 5; ++i) {
             yearList.add(i);
          }
          mAdapter = new ArrayAdapter<>(getActivity(),
@@ -146,6 +147,10 @@ public class FeiTagDetailFragment extends Fragment {
          });
          mListView.setAdapter(mAdapter);
          int pos = mAdapter.getPosition(mYear);
+         if (pos < 0) {
+            mYear = currentYear;
+            pos = mAdapter.getPosition(mYear);
+         }
          mListView.setItemChecked(pos, true);
          mListView.smoothScrollToPosition(pos);
 
