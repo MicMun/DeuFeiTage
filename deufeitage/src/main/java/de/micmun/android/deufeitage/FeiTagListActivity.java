@@ -79,7 +79,7 @@ public class FeiTagListActivity extends FragmentActivity
       if (!isConfig) {
          SharedPreferences.Editor editor = preferences.edit();
          editor.putBoolean(KEY_CONFIG, true);
-         editor.putString(KEY_ID, StateItem.ITEM_IDS[1]);
+         editor.putString(KEY_ID, null);
          int currentYear = Calendar.getInstance().get(Calendar.YEAR);
          editor.putInt(KEY_YEAR, currentYear);
          editor.commit();
