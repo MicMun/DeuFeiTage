@@ -19,9 +19,11 @@ package de.micmun.android.deufeitage;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
+import android.view.View;
 
 import de.micmun.android.deufeitage.util.StateItem;
 
@@ -37,7 +39,7 @@ import de.micmun.android.deufeitage.util.StateItem;
  * @author MicMun
  * @version 1.0, 28.02.2014
  */
-public class FeiTagDetailActivity extends FragmentActivity {
+public class FeiTagDetailActivity extends BaseActivity {
    private static final String FRAG_TAG = "CURRENT_STATE";
 
    /**
@@ -46,10 +48,6 @@ public class FeiTagDetailActivity extends FragmentActivity {
    @Override
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
-      setContentView(R.layout.activity_feitag_detail);
-
-      // Show the Up button in the action bar.
-      getActionBar().setDisplayHomeAsUpEnabled(true);
 
       String title;
       String stateItemId;
@@ -90,10 +88,18 @@ public class FeiTagDetailActivity extends FragmentActivity {
             stateItem = StateArrayAdapter.ITEM_MAP.get(stateItemId);
          }
       }
+
       title = getTitle().toString();
-      if (stateItem != null)
-         title += " " + stateItem;
-      setTitle(title);
+      String sub = null;
+      if (stateItem != null) {
+         sub = stateItem.toString();
+      }
+      setToolbarTitle(title, sub);
+   }
+
+   @Override
+   protected int getLayoutResource() {
+      return R.layout.activity_feitag_detail;
    }
 
    /**
@@ -114,7 +120,7 @@ public class FeiTagDetailActivity extends FragmentActivity {
                .PREF_NAME, MODE_PRIVATE);
          SharedPreferences.Editor editor = sp.edit();
          editor.putString(FeiTagListActivity.KEY_ID, null);
-         editor.commit();
+         editor.apply();
          NavUtils.navigateUpTo(this, new Intent(this, FeiTagListActivity.class));
          return true;
       }

@@ -19,12 +19,8 @@ package de.micmun.android.deufeitage;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 
 import java.util.Calendar;
-
-import de.micmun.android.deufeitage.util.StateItem;
 
 
 /**
@@ -47,7 +43,7 @@ import de.micmun.android.deufeitage.util.StateItem;
  * @author MicMun
  * @version 1.0, 28.02.2014
  */
-public class FeiTagListActivity extends FragmentActivity
+public class FeiTagListActivity extends BaseActivity
       implements FeiTagListFragment.Callbacks {
    /**
     * Name of the preference.
@@ -71,7 +67,7 @@ public class FeiTagListActivity extends FragmentActivity
    @Override
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
-      setContentView(R.layout.activity_feitag_list);
+      setActionBarIcon(R.drawable.ic_launcher);
 
       preferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
       boolean isConfig = preferences.getBoolean(KEY_CONFIG, false);
@@ -82,7 +78,7 @@ public class FeiTagListActivity extends FragmentActivity
          editor.putString(KEY_ID, null);
          int currentYear = Calendar.getInstance().get(Calendar.YEAR);
          editor.putInt(KEY_YEAR, currentYear);
-         editor.commit();
+         editor.apply();
       }
 
       if (findViewById(R.id.feitag_detail_container) != null) {
@@ -106,6 +102,11 @@ public class FeiTagListActivity extends FragmentActivity
       }
    }
 
+   @Override
+   protected int getLayoutResource() {
+      return R.layout.activity_feitag_list;
+   }
+
    /**
     * @see de.micmun.android.deufeitage.FeiTagListFragment.Callbacks#onItemSelected(String)
     */
@@ -115,7 +116,7 @@ public class FeiTagListActivity extends FragmentActivity
          mId = id;
          SharedPreferences.Editor editor = preferences.edit();
          editor.putString(KEY_ID, mId);
-         editor.commit();
+         editor.apply();
       }
       if (mTwoPane) {
          // In two-pane mode, show the detail view in this activity by
