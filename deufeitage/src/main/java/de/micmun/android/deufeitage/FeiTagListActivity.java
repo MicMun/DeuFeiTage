@@ -19,8 +19,11 @@ package de.micmun.android.deufeitage;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.ListView;
 
 import java.util.Calendar;
+
+import de.micmun.android.deufeitage.util.StateItem;
 
 
 /**
@@ -81,6 +84,9 @@ public class FeiTagListActivity extends BaseActivity
          editor.apply();
       }
 
+      mId = preferences.getString(KEY_ID, null);
+      mYear = preferences.getInt(KEY_YEAR, -1);
+
       if (findViewById(R.id.feitag_detail_container) != null) {
          // The detail container view will be present only in the
          // large-screen layouts (res/values-large and
@@ -95,11 +101,7 @@ public class FeiTagListActivity extends BaseActivity
                .setActivateOnItemClick(true);
       }
 
-      mId = preferences.getString(KEY_ID, null);
-      mYear = preferences.getInt(KEY_YEAR, -1);
-      if (mId != null) {
-         onItemSelected(mId);
-      }
+      onItemSelected(mId);
    }
 
    @Override
@@ -112,29 +114,44 @@ public class FeiTagListActivity extends BaseActivity
     */
    @Override
    public void onItemSelected(String id) {
-      if (mId == null || !mId.equals(id)) {
-         mId = id;
-         SharedPreferences.Editor editor = preferences.edit();
-         editor.putString(KEY_ID, mId);
-         editor.apply();
-      }
+      mId = id;
+
+      SharedPreferences.Editor editor = preferences.edit();
+      editor.putString(FeiTagListActivity.KEY_ID, mId);
+      editor.apply();
+
+      if (mId == null)
+         return;
+
+      mYear = preferences.getInt(KEY_YEAR, -1);
+
       if (mTwoPane) {
          // In two-pane mode, show the detail view in this activity by
          // adding or replacing the detail fragment using a
          // fragment transaction.
          Bundle arguments = new Bundle();
-         arguments.putString(FeiTagDetailFragment.ARG_ITEM_ID, id);
+         arguments.putString(FeiTagDetailFragment.ARG_ITEM_ID, mId);
          arguments.putInt(FeiTagDetailFragment.ARG_ITEM_YEAR, mYear);
          FeiTagDetailFragment fragment = new FeiTagDetailFragment();
          fragment.setArguments(arguments);
          getSupportFragmentManager().beginTransaction()
                .replace(R.id.feitag_detail_container, fragment)
                .commit();
+
+         StateItem currentItem = StateArrayAdapter.ITEM_MAP.get(mId);
+
+         String title = getTitle().toString();
+         String subtitle = currentItem.getName();
+         setToolbarTitle(title, subtitle);
+
+         ListView lv = ((FeiTagListFragment) getSupportFragmentManager()
+               .findFragmentById(R.id.feitag_list)).getListView();
+         lv.setItemChecked(StateArrayAdapter.ITEMS.indexOf(currentItem), true);
       } else {
          // In single-pane mode, simply start the detail activity
          // for the selected item ID.
          Intent detailIntent = new Intent(this, FeiTagDetailActivity.class);
-         detailIntent.putExtra(FeiTagDetailFragment.ARG_ITEM_ID, id);
+         detailIntent.putExtra(FeiTagDetailFragment.ARG_ITEM_ID, mId);
          detailIntent.putExtra(FeiTagDetailFragment.ARG_ITEM_YEAR, mYear);
          startActivity(detailIntent);
       }

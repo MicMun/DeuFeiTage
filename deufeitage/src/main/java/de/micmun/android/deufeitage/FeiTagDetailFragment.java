@@ -142,7 +142,7 @@ public class FeiTagDetailFragment extends Fragment {
                      (FeiTagListActivity.PREF_NAME, Context.MODE_PRIVATE);
                SharedPreferences.Editor editor = sp.edit();
                editor.putInt(FeiTagListActivity.KEY_YEAR, mYear);
-               editor.commit();
+               editor.apply();
             }
          });
          mListView.setAdapter(mAdapter);
