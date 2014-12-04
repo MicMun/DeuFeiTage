@@ -5,9 +5,7 @@
             android:alignmentMode="alignBounds"
             android:columnCount="2"
             android:rowCount="1"
-            android:orientation="horizontal"
-            android:paddingTop="16dp"
-            android:paddingBottom="20dp">
+            android:orientation="horizontal">
 
     <TextView
         android:id="@+id/tvName"
