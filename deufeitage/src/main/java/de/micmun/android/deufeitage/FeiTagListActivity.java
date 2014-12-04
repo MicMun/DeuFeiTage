@@ -70,7 +70,7 @@ public class FeiTagListActivity extends BaseActivity
    @Override
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
-      setActionBarIcon(R.drawable.ic_launcher);
+      setActionBarIcon(0);
 
       preferences = getSharedPreferences(PREF_NAME, MODE_PRIVATE);
       boolean isConfig = preferences.getBoolean(KEY_CONFIG, false);

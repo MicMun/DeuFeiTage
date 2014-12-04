@@ -1,24 +1,26 @@
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
             android:useDefaultMargins="true"
             android:alignmentMode="alignBounds"
             android:columnCount="2"
             android:rowCount="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:paddingBottom="20dp">
 
     <TextView
-            android:id="@+id/tvName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:layout_gravity="fill_horizontal"/>
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_gravity="fill_horizontal"/>
 
     <TextView
-            android:id="@+id/tvDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:layout_marginRight="10dp"
-            android:textAlignment="viewStart"/>
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_gravity="end"
+        android:gravity="end"/>
 </GridLayout>
