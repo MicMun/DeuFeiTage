@@ -1,0 +1,37 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:listViewStyle">@style/StateListViewStyle</item>
+    </style>
+
+    <style name="ToolbarLightTheme" parent="AppTheme">
+        <item name="android:textColorPrimary">@android:color/secondary_text_dark</item>
+        <item name="actionMenuTextColor">@android:color/secondary_text_dark</item>
+        <item name="android:textColorSecondary">@android:color/secondary_text_dark</item>
+    </style>
+
+    <style name="StateListViewStyle" parent="Base.Widget.AppCompat.ListView.DropDown">
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="CustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@android:color/white</item>
+        <item name="tabIndicatorHeight">3dp</item>
+        <item name="tabBackground">?attr/selectableItemBackground</item>
+        <item name="tabTextAppearance">@style/CustomTabTextAppearance</item>
+        <item name="tabSelectedTextColor">@android:color/white</item>
+    </style>
+
+    <style name="CustomTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:maxLines">2</item>
+    </style>
+</resources>

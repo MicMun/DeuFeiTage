@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">DeuFeiTage</string>
+
+    <string name="title_feitag_detail">Feiertage</string>
+    <string-array name="states_of_germany">
+        <item>Baden-Württemberg</item>
+        <item>Bayern</item>
+        <item>Berlin</item>
+        <item>Brandenburg</item>
+        <item>Bremen</item>
+        <item>Hamburg</item>
+        <item>Hessen</item>
+        <item>Mecklenburg-Vorpommern</item>
+        <item>Niedersachsen</item>
+        <item>Nordrhein-Westfalen</item>
+        <item>Rheinland-Pfalz</item>
+        <item>Saarland</item>
+        <item>Sachsen</item>
+        <item>Sachsen-Anhalt</item>
+        <item>Schleswig Holstein</item>
+        <item>Thüringen</item>
+    </string-array>
+    <string-array name="names_of_holidays">
+        <item>Neujahr</item>
+        <item>Heilige Drei Könige</item>
+        <item>Karfreitag</item>
+        <item>Ostersonntag</item>
+        <item>Ostermontag</item>
+        <item>Tag der Arbeit</item>
+        <item>Christi Himmelfahrt</item>
+        <item>Pfingstsonntag</item>
+        <item>Pfingstmontag</item>
+        <item>Fronleichnam</item>
+        <item>Mariä Himmelfahrt</item>
+        <item>Tag der dt. Einheit</item>
+        <item>Reformationstag</item>
+        <item>Allerheiligen</item>
+        <item>Buß- und Bettag</item>
+        <item>1. Weihnachtsfeiertag</item>
+        <item>2. Weihnachtsfeiertag</item>
+    </string-array>
+</resources>
