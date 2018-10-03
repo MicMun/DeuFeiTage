@@ -1,7 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">DeuFeiTage</string>
-
-    <string name="title_feitag_detail">Feiertage</string>
     <string-array name="states_of_germany">
         <item>Baden-Württemberg</item>
         <item>Bayern</item>

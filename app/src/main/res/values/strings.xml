@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">DeuFeiTage</string>
 
-    <string name="title_feitag_detail">Holidays</string>
-    <string-array name="states_of_germany">
+    <array name="states_of_germany">
         <item>Baden-Württemberg</item>
         <item>Bavaria</item>
         <item>Berlin</item>
@@ -19,7 +18,8 @@
         <item>Saxony-Anhalt</item>
         <item>Schleswig Holstein</item>
         <item>Thuringia</item>
-    </string-array>
+    </array>
+
     <string-array name="names_of_holidays">
         <item>New Year\'s Day</item>
         <item>Epiphany</item>
