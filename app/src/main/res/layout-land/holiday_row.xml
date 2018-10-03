@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="2dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/holidayDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:minWidth="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="25"/>
+
+    <TextView
+        android:id="@+id/holidayText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:minWidth="120dp"
+        app:layout_constraintStart_toEndOf="@id/holidayDate"
+        app:layout_constraintWidth_percent="50"/>
+
+    <TextView
+        android:id="@+id/holidayDiff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:minWidth="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="25"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
