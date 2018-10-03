@@ -6,10 +6,10 @@
 package de.micmun.android.deufeitage.adapter
 
 import android.graphics.Typeface
-import android.support.constraint.ConstraintLayout
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import de.micmun.android.deufeitage.R
 import de.micmun.android.deufeitage.model.Holiday

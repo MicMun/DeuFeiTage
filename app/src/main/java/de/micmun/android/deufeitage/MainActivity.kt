@@ -1,6 +1,5 @@
 package de.micmun.android.deufeitage
 
-import android.database.sqlite.SQLiteDatabase
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -16,7 +15,6 @@ import de.micmun.android.deufeitage.adapter.YearViewHolder
 import de.micmun.android.deufeitage.model.YearItem
 import de.micmun.android.deufeitage.utils.HolidayCalculator
 import kotlinx.android.synthetic.main.activity_main.*
-import java.io.File
 import java.time.LocalDate
 import java.util.*
 
@@ -37,21 +35,39 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // holiday view
+        holidayRv = holidayView
+        holidayRv!!.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+
+        // holiday calculator
+        holidayCalculator = HolidayCalculator(this)
+
+        // year selector
+        yearSelector.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+    }
+
+    override fun onPause() {
+        stateSpinner.onItemSelectedListener = null
+        yearAdapter?.listener = null
+        Log.d("MainActivity", "onPause")
+        super.onPause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        initActivity()
+        Log.d("MainActivity", "onResume")
+    }
+
+    private fun initActivity() {
         // state selection
         val stateAdapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(this,
                 R.array.states_of_germany, android.R.layout.simple_spinner_item)
         stateSpinner.adapter = stateAdapter
         stateSpinner.onItemSelectedListener = this
 
-        // holiday calculator
-        holidayCalculator = HolidayCalculator(this)
-
         // year selection
         initYearSelector()
-
-        // holiday view
-        holidayRv = holidayView
-        holidayRv!!.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
     }
 
     override fun onItemSelected(parent: AdapterView<*>, view: View, pos: Int, id: Long) {
@@ -87,25 +103,17 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
 
         yearAdapter = YearRecyclerAdapter(years.toTypedArray(), this)
         yearSelector.adapter = yearAdapter
-        yearSelector.layoutManager = LinearLayoutManager(this,
-                LinearLayoutManager.HORIZONTAL, false)
+
         yearSelector.postDelayed({
             yearSelector.findViewHolderForAdapterPosition(selectedPos)?.itemView?.performClick()
         },
-                20)
+                30)
     }
 
     override fun onYearItemSelected(item: YearItem) {
         Log.d("MainActivity", item.toString())
 
-
         val adapter = HolidayAdapter(holidayCalculator!!.getHolidays(item.year))
         holidayRv!!.adapter = adapter
     }
-
-    override fun openOrCreateDatabase(p0: String?, p1: Int,
-                                      p2: SQLiteDatabase.CursorFactory?): SQLiteDatabase {
-        return SQLiteDatabase.openOrCreateDatabase(File(p0), p2)
-    }
-
 }

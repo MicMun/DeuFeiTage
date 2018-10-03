@@ -10,9 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
-        tools:replace="android:allowBackup,icon,theme,label,appComponentFactory">
-        <activity android:name=".MainActivity">
+        tools:replace="android:allowBackup,icon,theme,label">
+        <activity android:name=".MainActivity"
+                  android:screenOrientation="sensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
