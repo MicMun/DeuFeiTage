@@ -1,0 +1,387 @@
+{
+  "States": [
+    {
+      "KEY": "BW",
+      "VALUE": "Baden-Württemberg"
+    },
+    {
+      "KEY": "BY",
+      "VALUE": "Bavaria"
+    },
+    {
+      "KEY": "BE",
+      "VALUE": "Berlin"
+    },
+    {
+      "KEY": "BB",
+      "VALUE": "Brandenburg"
+    },
+    {
+      "KEY": "HB",
+      "VALUE": "Bremen"
+    },
+    {
+      "KEY": "HH",
+      "VALUE": "Hamburg"
+    },
+    {
+      "KEY": "HE",
+      "VALUE": "Hesse"
+    },
+    {
+      "KEY": "MV",
+      "VALUE": "Mecklenburg Western Pomerania"
+    },
+    {
+      "KEY": "NI",
+      "VALUE": "Lower Saxony"
+    },
+    {
+      "KEY": "NW",
+      "VALUE": "Northrhine-Westphalia"
+    },
+    {
+      "KEY": "RP",
+      "VALUE": "Rhineland Palatinate"
+    },
+    {
+      "KEY": "SL",
+      "VALUE": "Saarland"
+    },
+    {
+      "KEY": "SN",
+      "VALUE": "Saxony"
+    },
+    {
+      "KEY": "ST",
+      "VALUE": "Saxony-Anhalt"
+    },
+    {
+      "KEY": "SH",
+      "VALUE": "Schleswig Holstein"
+    },
+    {
+      "KEY": "TH",
+      "VALUE": "Thuringia"
+    }
+  ],
+  "Holidays": [
+    {
+      "ID": 1,
+      "Name": "New Year's Day",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "New Year's Day, also called simply New Year's or New Year, is observed on January 1, the first day of the year on the modern Gregorian calendar as well as the Julian calendar."
+    },
+    {
+      "ID": 2,
+      "Name": "Epiphany",
+      "States": [
+        "BW",
+        "BY",
+        "ST"
+      ],
+      "Description": "Epiphany, also Theophany,Little Christmas, or Three Kings' Day, is a Christian feast day that celebrates the revelation of God incarnate as Jesus Christ. In Western Christianity, the feast commemorates principally (but not solely) the visit of the Magi to the Christ Child, and thus Jesus' physical manifestation to the Gentiles.Moreover, the feast of the Epiphany, in some Western Christian denominations, also initiates the liturgical season of Epiphanytide. Eastern Christians, on the other hand, commemorate the baptism of Jesus in the Jordan River, seen as his manifestation to the world as the Son of God. Qasr el Yahud in the West Bank, and Al-Maghtas in Jordan on the east bank, is considered to be the original site of the baptism of Jesus and the ministry of John the Baptist."
+    },
+    {
+      "ID": 3,
+      "Name": "Good Friday",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "Good Friday is a Christian holiday commemorating the crucifixion of Jesus and his death at Calvary. It is observed during Holy Week as part of the Paschal Triduum on the Friday preceding Easter Sunday, and may coincide with the Jewish observance of Passover. It is also known as Holy Friday, Great Friday, and Black Friday."
+    },
+    {
+      "ID": 4,
+      "Name": "Easter Sunday",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "Easter,also called Pascha or Resurrection Sunday, is a festival and holiday celebrating the resurrection of Jesus from the dead, described in the New Testament as having occurred on the third day of his burial after his crucifixion by the Romans at Calvary c. 30 AD. It is the culmination of the Passion of Jesus, preceded by Lent (or Great Lent), a forty-day period of fasting, prayer, and penance."
+    },
+    {
+      "ID": 5,
+      "Name": "Easter Monday",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "Easter Monday is the day after Easter Sunday and is a holiday in some countries. Easter Monday in the Western Christian liturgical calendar is the second day of Eastertide and analogously in the Byzantine Rite is the second day of Bright Week."
+    },
+    {
+      "ID": 6,
+      "Name": "Labour Day",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "Labour Day (Labor Day in the United States) is an annual holiday to celebrate the achievements of workers. Labour Day has its origins in the labour union movement, specifically the eight-hour day movement, which advocated eight hours for work, eight hours for recreation, and eight hours for rest."
+    },
+    {
+      "ID": 7,
+      "Name": "Ascension Day",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "The Feast of the Ascension of Jesus Christ, also known as Holy Thursday, Ascension Day, or Ascension Thursday, commemorates the Christian belief of the bodily Ascension of Jesus into heaven. It is one of the ecumenical (i.e., universally celebrated) feasts of Christian churches, ranking with the feasts of the Passion, of Easter, and Pentecost. Ascension Day is traditionally celebrated on a Thursday, the fortieth day of Easter (following the accounts given in Mark 16:19, Luke 24:51 and Acts 1:2), although some Christian denominations have moved the observance to the following Sunday."
+    },
+    {
+      "ID": 8,
+      "Name": "Whit Sunday",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "Whitsun (also Whitsunday or Whit Sunday) is the name used especially in Britain and Ireland, and throughout the world among Anglicans and Methodists, for the Christian festival of Pentecost, the seventh Sunday after Easter, which commemorates the descent of the Holy Spirit upon Christ's disciples (Acts 2)."
+    },
+    {
+      "ID": 9,
+      "Name": "Whit Monday",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "Whit Monday or Pentecost Monday (also known as Monday of the Holy Spirit) is the holiday celebrated the day after Pentecost, a moveable feast in the Christian calendar. It is moveable because it is determined by the date of Easter. Whit Monday gets its English name from \"Whitsunday\", an English name for Pentecost, one of the three baptismal seasons. The origin of the name \"Whit Sunday\" is generally attributed to the white garments formerly worn by those newly baptized on this feast."
+    },
+    {
+      "ID": 10,
+      "Name": "Corpus Christi",
+      "States": [
+        "BW",
+        "BY",
+        "HE",
+        "NW",
+        "RP",
+        "SL"
+      ],
+      "Description": "The Feast of Corpus Christi (Latin for \"Body of Christ\") is a Catholic liturgical solemnity celebrating the real presence of the body and blood of Jesus Christ, the Son of God, in the elements of the Eucharist—known as transubstantiation. Two months earlier, the Eucharist is observed on Maundy Thursday in a sombre atmosphere leading to Good Friday. The liturgy on that day also commemorates Christ's washing of the disciples' feet, the institution of the priesthood and the agony in the Garden of Gethsemane. The feast of Corpus Christi was established to create a feast focused solely on the Holy Eucharist emphasizing the joy of the Eucharist being the body and blood of Jesus Christ."
+    },
+    {
+      "ID": 11,
+      "Name": "Assumption of Mary",
+      "States": [
+        "BY",
+        "SL"
+      ],
+      "Description": "In Bavaria only in mainly catholic cities a holiday. The Assumption of Mary into Heaven (often shortened to the Assumption) is, according to the beliefs of the Catholic Church, Eastern and Oriental Orthodoxy, the bodily taking up of the Virgin Mary into Heaven at the end of her earthly life."
+    },
+    {
+      "ID": 12,
+      "Name": "Day of German Unity",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "The Day of German Unity (German: Tag der Deutschen Einheit) is the national day of Germany, celebrated on 3 October as a public holiday. It commemorates the anniversary of German reunification in 1990 when the goal of a united Germany, that originated in the middle of the 19th century, was fulfilled again. Therefore, the name addresses neither the re-union nor the union, but the unity of Germany. The Day of German Unity on 3 October has been the German national holiday since 1990, when the reunification was formally completed."
+    },
+    {
+      "ID": 13,
+      "Name": "Reformation Day",
+      "States": [
+        "BB",
+        "MV",
+        "SN",
+        "ST",
+        "TH"
+      ],
+      "Description": "Reformation Day is a Protestant Christian religious holiday celebrated on 31 October, alongside All Hallows' Eve (Halloween) during the triduum of Allhallowtide, in remembrance of the onset of the Reformation."
+    },
+    {
+      "ID": 14,
+      "Name": "All Saints' Day",
+      "States": [
+        "BW",
+        "BY",
+        "NW",
+        "RP",
+        "SL"
+      ],
+      "Description": "All Saints' Day, also known as All Hallows' Day, Hallowmas, Feast of All Saints, or Solemnity of All Saints, is a Christian festival celebrated in honour of all the saints, known and unknown. In Western Christianity, it is celebrated on 1 November by the Roman Catholic Church, the Anglican Communion, the Methodist Church, the Lutheran Church, and other Protestant churches."
+    },
+    {
+      "ID": 15,
+      "Name": "Day of Prayer and Repentance",
+      "States": [
+        "SN"
+      ],
+      "Description": "Buß- und Bettag (Day of Repentance and Prayer) was a public holiday in Germany, and is still a public holiday in Saxony. In Germany, Protestant church bodies of Lutheran, Reformed (Calvinist) and United denominations celebrate a day of repentance and prayer. It is now celebrated on the penultimate Wednesday before the beginning of the Protestant liturgical year on the first Sunday of Advent; in other words, it is the Wednesday that falls between 16 and 22 November. However, it is not a statutory non-working holiday any more, except in the Free State of Saxony. In the Free State of Bavaria, it is a school holiday only."
+    },
+    {
+      "ID": 16,
+      "Name": "Christmas Day",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "Christmas is an annual festival commemorating the birth of Jesus Christ, observed primarily on December 25 as a religious and cultural celebration among billions of people around the world."
+    },
+    {
+      "ID": 17,
+      "Name": "Boxing Day",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "Boxing Day is a holiday celebrated on the day after Christmas Day. It originated in the United Kingdom, and is celebrated in a number of countries that previously formed part of the British Empire. Boxing Day is on 26 December, although the attached bank holiday or public holiday may take place either on that day or two days later. In the liturgical calendar of Western Christianity, Boxing Day is the second day of Christmastide, and also Saint Stephen's Day. It is also celebrated as Saint Stephen's Day in Ireland and the Catalonia region of Spain. In some European countries, such as Hungary, Germany, Poland, the Netherlands, and Scandinavia, 26 December is celebrated as a Second Christmas Day."
+    }
+  ]
+}

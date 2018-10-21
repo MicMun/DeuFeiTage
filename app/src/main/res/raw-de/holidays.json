@@ -1,0 +1,387 @@
+{
+  "States": [
+    {
+      "KEY": "BW",
+      "VALUE": "Baden-Württemberg"
+    },
+    {
+      "KEY": "BY",
+      "VALUE": "Bayern"
+    },
+    {
+      "KEY": "BE",
+      "VALUE": "Berlin"
+    },
+    {
+      "KEY": "BB",
+      "VALUE": "Brandenburg"
+    },
+    {
+      "KEY": "HB",
+      "VALUE": "Bremen"
+    },
+    {
+      "KEY": "HH",
+      "VALUE": "Hamburg"
+    },
+    {
+      "KEY": "HE",
+      "VALUE": "Hessen"
+    },
+    {
+      "KEY": "MV",
+      "VALUE": "Mecklenburg-Vorpommern"
+    },
+    {
+      "KEY": "NI",
+      "VALUE": "Niedersachsen"
+    },
+    {
+      "KEY": "NW",
+      "VALUE": "Nordrhein-Westfalen"
+    },
+    {
+      "KEY": "RP",
+      "VALUE": "Rheinland-Pfalz"
+    },
+    {
+      "KEY": "SL",
+      "VALUE": "Saarland"
+    },
+    {
+      "KEY": "SN",
+      "VALUE": "Sachsen"
+    },
+    {
+      "KEY": "ST",
+      "VALUE": "Sachsen-Anhalt"
+    },
+    {
+      "KEY": "SH",
+      "VALUE": "Schleswig Holstein"
+    },
+    {
+      "KEY": "TH",
+      "VALUE": "Thüringen"
+    }
+  ],
+  "Holidays": [
+    {
+      "ID": 1,
+      "Name": "Neujahr",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "Neujahr (auch Neujahrstag) ist der erste Tag des Kalenderjahres. Wegen der teils in einzelnen Kulturen und Religionen unterschiedlichen Zeitrechnungen und damit auch Kalender ist der Jahresbeginn zu unterschiedlichen Zeitpunkten. In nahezu allen Kulturen ist mit ihm ein Neujahrsfest mit dazugehörigen Bräuchen verbunden."
+    },
+    {
+      "ID": 2,
+      "Name": "Heilige Drei Könige",
+      "States": [
+        "BW",
+        "BY",
+        "ST"
+      ],
+      "Description": "Epiphanias bzw. Epiphanie, Theophanie ist der ursprüngliche und heute noch in der evangelischen Kirche gebräuchliche Name eines am 6. Januar begangenen Festes im Christentum. Es wird in der katholischen Kirche als Fest der Erscheinung des Herrn, volkstümlich und in vielen Kalendern auch als Dreikönigsfest, Dreikönigstag, Heilige Drei Könige, Heiligedreikönigstag bezeichnet, regional vereinzelt bis heute u. a. auch als Groß-Neujahr, \"Hochneujahr\", \"Hoh-Neujahr\" oder \"Oberster\" bekannt. Das Fest wird von den Westkirchen der Anbetung des Kindes durch die Weisen aus dem Morgenland zugeordnet, in den Ostkirchen als Tag der Taufe Jesu und Offenbarung der allerheiligsten Dreifaltigkeit begangen."
+    },
+    {
+      "ID": 3,
+      "Name": "Karfreitag",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "Der Karfreitag (althochdeutsch kara ‚Klage‘, ‚Kummer‘, ‚Trauer‘) ist der Freitag vor Ostern. Er folgt auf den Gründonnerstag und geht dem Karsamstag voraus. Christen gedenken an diesem Tag des Kreuzestodes Jesu Christi. Der Karfreitag wird auch \"Stiller\" oder \"Hoher Freitag\" genannt. In der katholischen Kirche ist er ein strenger Fast- und Abstinenztag. Unter Einbeziehung des Gründonnerstagabends ist der Karfreitag der erste Tag der österlichen Dreitagefeier (Triduum Sacrum oder Triduum paschale), die in ihrer Gesamtheit in allen christlichen Konfessionen das höchste Fest des Kirchenjahres darstellt und wie ein einziger Gottesdienst als das Pascha-Mysterium gefeiert wird."
+    },
+    {
+      "ID": 4,
+      "Name": "Ostersonntag",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "Ostern (lateinisch pascha, auch Festum paschale, von hebräisch pessach) ist das Fest der Auferstehung Jesu Christi. Mit dem Ostersonntag (liturgisch Dominica Resurrectionis, \"Sonntag der Auferstehung\" [des Herrn]) beginnt die österliche Freudenzeit (Osterzeit), die fünfzig Tage bis einschließlich Pfingsten dauert. Im Mittelalter entwickelte sich aus dem ursprünglichen Triduum ein separates Ostertriduum, das die ersten drei Tage der Osteroktav von der restlichen Feierwoche abhob. Später wurde dieser arbeitsfreie Zeitraum verkürzt, bis nur noch der Ostermontag als gesetzlicher Feiertag erhalten blieb."
+    },
+    {
+      "ID": 5,
+      "Name": "Ostermontag",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "Der Ostermontag ist der Tag nach dem Ostersonntag und u. a. in Deutschland ein gesetzlicher Feiertag. Der Ostermontag gehört mit dem Zweiten Weihnachtsfeiertag (Stephanstag) und dem Pfingstmontag zu den zweiten Feiertagen der höchsten christlichen Feste."
+    },
+    {
+      "ID": 6,
+      "Name": "Tag der Arbeit",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "Der Tag der Arbeit ist ein jährlicher Feiertag, um die Errungenschaften der Arbeiter zu feiern. Der Tag der Arbeit hat seinen Ursprung in der Gewerkschaftsbewegung, speziell in der Acht-Stunden-Bewegung, die acht Stunden für die Arbeit, acht Stunden für die Erholung und acht Stunden für die Erholung forderte."
+    },
+    {
+      "ID": 7,
+      "Name": "Christi Himmelfahrt",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "Christi Himmelfahrt (altgriechisch ἡ Ἀνάληψις τοῦ Κυρίου \"Análēpsis tou kyríou\" 'die Aufnahme des Herrn', lateinisch Ascensio Domini 'Aufstieg des Herrn'), in der Schweiz und in Liechtenstein Auffahrt (alemannisch Uuffert) genannt, bezeichnet im christlichen Glauben die Rückkehr Jesu Christi als Sohn Gottes zu seinem Vater in den Himmel. Christi Himmelfahrt wird am 40. Tag der Osterzeit, also 39 Tage nach dem Ostersonntag gefeiert. Deshalb fällt das Fest immer auf einen Donnerstag."
+    },
+    {
+      "ID": 8,
+      "Name": "Pfingstsonntag",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "Pfingsten (von griechisch πεντηκοστὴ ἡμέρα pentēkostē hēméra, deutsch 'fünfzigster Tag') ist ein christliches Fest. Am 50. Tag der Osterzeit, also 49 Tage nach dem Ostersonntag, wird von den Gläubigen die Entsendung des Heiligen Geistes gefeiert – als Mysterium oder ikonografisch Aussendung des heiligen Geistes oder auch Ausgießung des heiligen Geistes genannt."
+    },
+    {
+      "ID": 9,
+      "Name": "Pfingstmontag",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "Der Tag nach Pfingstsonntag und auch ein gesetzlicher Feiertag in Deutschland."
+    },
+    {
+      "ID": 10,
+      "Name": "Fronleichnam",
+      "States": [
+        "BW",
+        "BY",
+        "HE",
+        "NW",
+        "RP",
+        "SL"
+      ],
+      "Description": "Das Fronleichnamsfest (lateinisch Sollemnitas Sanctissimi Corporis et Sanguinis Christi \"Fest des heiligsten Leibes und Blutes Christi\") ist ein Hochfest im Kirchenjahr der katholischen Kirche, mit dem die bleibende Gegenwart Jesu Christi im Sakrament der Eucharistie, in den Zeichen von Brot und Wein, gefeiert wird. Die Bezeichnung Fronleichnam leitet sich von mittelhochdeutsch vrône lîcham für 'des Herren Leib' ab, von vrôn 'was den Herrn betrifft' (siehe auch Fron) und lîcham ('der Leib')."
+    },
+    {
+      "ID": 11,
+      "Name": "Mariä Himmelfahrt",
+      "States": [
+        "BY",
+        "SL"
+      ],
+      "Description": "In Bayern nur in überwiegend katholischen Gemeinden ein Feiertag. Mariä Aufnahme in den Himmel (lateinisch Assumptio Beatae Mariae Virginis \"Aufnahme der seligen Jungfrau Maria\"), auch Mariä Himmelfahrt oder lateinisch Dormitio (\"Entschlafung\"), ist das Fest der leiblichen Aufnahme Mariens in den Himmel am 15. August, das in manchen Staaten auch ein gesetzlicher Feiertag ist. Es wird mindestens seit dem 5. Jahrhundert begangen. Andere Bezeichnungen sind \"Vollendung Mariens\" oder \"Heimgang Mariens\"."
+    },
+    {
+      "ID": 12,
+      "Name": "Tag der dt. Einheit",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "Der 3. Oktober wurde als Tag der Deutschen Einheit im Einigungsvertrag 1990 zum gesetzlichen Feiertag in Deutschland bestimmt. Als deutscher Nationalfeiertag erinnert er an die deutsche Wiedervereinigung, die \"mit dem Wirksamwerden des Beitritts der Deutschen Demokratischen Republik zur Bundesrepublik Deutschland […] am 3. Oktober 1990\" \"vollendet\" wurde. Somit wurden Brandenburg, Mecklenburg-Vorpommern, Sachsen, Sachsen-Anhalt und Thüringen sowie Berlin in seiner Gesamtheit die neuen Länder der Bundesrepublik Deutschland. Als \"Deutsche Einheit\" wird historisch seit dem frühen 19. Jahrhundert das Bestreben bezeichnet, die deutschen Länder in einem Staat zusammenzuführen. Das Einheitsmotiv findet sich auch in der deutschen Nationalhymne als \"Einigkeit\" wieder."
+    },
+    {
+      "ID": 13,
+      "Name": "Reformationstag",
+      "States": [
+        "BB",
+        "MV",
+        "SN",
+        "ST",
+        "TH"
+      ],
+      "Description": "Der Reformationstag, das Reformationsfest oder der Gedenktag der Reformation wird von evangelischen Christen in Deutschland und Österreich am 31. Oktober im Gedenken an die Reformation der Kirche durch Martin Luther gefeiert."
+    },
+    {
+      "ID": 14,
+      "Name": "Allerheiligen",
+      "States": [
+        "BW",
+        "BY",
+        "NW",
+        "RP",
+        "SL"
+      ],
+      "Description": "Allerheiligen (lateinisch Festum Omnium Sanctorum) ist ein christliches Fest, zu dem aller Heiligen gedacht wird, der \"verherrlichten Glieder der Kirche, die schon zur Vollendung gelangt sind\", der bekannten wie der unbekannten. Das Fest wird in der Westkirche am 1. November begangen."
+    },
+    {
+      "ID": 15,
+      "Name": "Buß- und Bettag",
+      "States": [
+        "SN"
+      ],
+      "Description": "Der Buß- und Bettag in Deutschland ist ein Feiertag der evangelischen Kirche, der auf Notzeiten zurückgeht. Im Lauf der Geschichte wurden Buß- und Bettage immer wieder aus aktuellem Anlass angesetzt. Angesichts von Notständen und Gefahren wurde die ganze Bevölkerung zu Umkehr und Gebet aufgerufen. Seit Ende des 19. Jahrhunderts wird ein allgemeiner Buß- und Bettag am Mittwoch vor dem Ewigkeitssonntag, dem letzten Sonntag des Kirchenjahres, begangen, also elf Tage vor dem ersten Adventssonntag bzw. am Mittwoch vor dem 23. November. Das Wort \"Buße\" lässt in manchen Regionen des deutschen Sprachraums unzutreffende Assoziationen aufkommen. Es geht bei diesem Tag nicht um Geldbußen im Sinne des Verwaltungsrechts, sondern um eine Buße im religiösen Sinne, also um Reue für begangene Sünden und eine Besinnung auf den Gottesglauben."
+    },
+    {
+      "ID": 16,
+      "Name": "1. Weihnachtsfeiertag",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "Weihnachten, auch Weihnacht, Christfest oder Heiliger Christ genannt, ist das Fest der Geburt Jesu Christi. Festtag ist der 25. Dezember, der Christtag, auch Hochfest der Geburt des Herrn (lat. Sollemnitas in nativitate Domini), dessen Feierlichkeiten am Vorabend, dem Heiligen Abend (auch Heiligabend, Heilige Nacht, Christnacht, Weihnachtsabend), beginnen. Er ist in vielen Staaten ein gesetzlicher Feiertag. In Deutschland, Österreich, der Schweiz und vielen anderen Ländern kommt als zweiter Weihnachtsfeiertag der 26. Dezember hinzu, der auch als Stephanstag begangen wird."
+    },
+    {
+      "ID": 17,
+      "Name": "2. Weihnachtsfeiertag",
+      "States": [
+        "BW",
+        "BY",
+        "BE",
+        "BB",
+        "HB",
+        "HH",
+        "HE",
+        "MV",
+        "NI",
+        "NW",
+        "RP",
+        "SL",
+        "SN",
+        "ST",
+        "SH",
+        "TH"
+      ],
+      "Description": "Der Zweite Weihnachtsfeiertag am 26. Dezember ist in den meisten europäischen Ländern ein gesetzlicher Feiertag zwischen den Jahren."
+    }
+  ]
+}
