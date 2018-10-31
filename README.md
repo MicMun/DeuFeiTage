@@ -8,7 +8,7 @@ Dieses GitHub Repository hostet den Code der Android-App _DeuFeiTage_. _DeuFeiTa
 
 ## Screenshots
 
-![Screenshot](screen_deufeitage.png)
+<img src="screen_deufeitage.png" width="290" height="480">
 
 ## Compatibility
 
