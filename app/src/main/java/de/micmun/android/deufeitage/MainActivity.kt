@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import de.micmun.android.deufeitage.adapter.HolidayAdapter
@@ -51,7 +52,10 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         initPreferences()
 
         // holiday view
-        holidayView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        val layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        holidayView.layoutManager = layoutManager
+        val dividerItemDecoration = DividerItemDecoration(holidayView.context, layoutManager.orientation)
+        holidayView.addItemDecoration(dividerItemDecoration)
 
         // year selector
         yearSelector.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
