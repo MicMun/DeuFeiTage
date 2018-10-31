@@ -28,7 +28,6 @@ class HolidayConfigReader(context: Context) {
     private val keyDesc = "Description"
 
     val holidays = mutableListOf<Holiday>()
-    val holidayNames = mutableListOf<String>()
     val states = mutableListOf<StateItem>()
 
     init {
@@ -57,7 +56,6 @@ class HolidayConfigReader(context: Context) {
             val holiday = Holiday(holidayObj[keyId] as Int, holidayObj[keyName] as String,
                     holidayStates, holidayObj[keyDesc] as String)
             holidays.add(holiday)
-            holidayNames.add(holiday.name)
         }
     }
 }

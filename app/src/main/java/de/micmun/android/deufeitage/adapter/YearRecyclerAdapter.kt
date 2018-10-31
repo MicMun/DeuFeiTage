@@ -20,7 +20,7 @@ import de.micmun.android.deufeitage.model.YearItem
  * @version 1.0, 07.08.18
  */
 class YearRecyclerAdapter(private val myDataset: Array<YearItem>,
-                          var listener: YearViewHolder.OnYearItemSelectedListener?) :
+                          private val listener: YearViewHolder.OnYearItemSelectedListener) :
         RecyclerView.Adapter<YearViewHolder>(), YearViewHolder.OnYearItemSelectedListener {
 
     private var selectedItem: YearItem? = null
@@ -54,6 +54,6 @@ class YearRecyclerAdapter(private val myDataset: Array<YearItem>,
             }
         }
         notifyDataSetChanged()
-        listener?.onYearItemSelected(item)
+        listener.onYearItemSelected(item)
     }
 }

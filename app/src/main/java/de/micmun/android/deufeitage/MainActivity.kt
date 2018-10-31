@@ -1,5 +1,6 @@
 package de.micmun.android.deufeitage
 
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -12,11 +13,15 @@ import androidx.recyclerview.widget.RecyclerView
 import de.micmun.android.deufeitage.adapter.HolidayAdapter
 import de.micmun.android.deufeitage.adapter.YearRecyclerAdapter
 import de.micmun.android.deufeitage.adapter.YearViewHolder
+import de.micmun.android.deufeitage.model.StateItem
 import de.micmun.android.deufeitage.model.YearItem
 import de.micmun.android.deufeitage.utils.HolidayCalculator
+import de.micmun.android.deufeitage.utils.HolidayConfigReader
+import de.micmun.android.deufeitage.utils.PreferenceManager
 import kotlinx.android.synthetic.main.activity_main.*
 import java.time.LocalDate
 import java.util.*
+
 
 /**
  * MainActivity of the app.
@@ -26,52 +31,79 @@ import java.util.*
  */
 class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         YearViewHolder.OnYearItemSelectedListener {
-
-    private var holidayRv: RecyclerView? = null
     private var yearAdapter: YearRecyclerAdapter? = null
     private var holidayCalculator: HolidayCalculator? = null
+    private var holidayConfigReader: HolidayConfigReader? = null
+    private var preferenceManager: PreferenceManager? = null
+
+    private var selectedYear: Int = 0
+    private var selectedState: StateItem? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // holiday view
-        holidayRv = holidayView
-        holidayRv!!.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        // Read config and init calculator
+        if (holidayConfigReader == null) {
+            holidayConfigReader = HolidayConfigReader(this)
+            holidayCalculator = HolidayCalculator(holidayConfigReader!!.holidays)
+        }
+        initPreferences()
 
-        // holiday calculator
-        holidayCalculator = HolidayCalculator(this)
+        // holiday view
+        holidayView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
 
         // year selector
         yearSelector.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
     }
 
+    /**
+     * Inits the preferences.
+     */
+    private fun initPreferences() {
+        val sharedPreference = getSharedPreferences(PreferenceManager.pref_name, Context.MODE_PRIVATE)
+        val pInfo = packageManager.getPackageInfo(packageName, 0)
+        val version = pInfo.versionName
+
+        preferenceManager = PreferenceManager(sharedPreference, version)
+    }
+
     override fun onPause() {
         stateSpinner.onItemSelectedListener = null
-        yearAdapter?.listener = null
+        stateSpinner.adapter = null
         Log.d("MainActivity", "onPause")
         super.onPause()
     }
 
     override fun onResume() {
-        super.onResume()
+        selectedYear = preferenceManager!!.getYear()
+        val stateId = preferenceManager!!.getState()
+        selectedState = holidayConfigReader!!.states.find { it.key == stateId }
         initActivity()
         Log.d("MainActivity", "onResume")
+        super.onResume()
     }
 
     private fun initActivity() {
         // state selection
-        val stateAdapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(this,
-                R.array.states_of_germany, android.R.layout.simple_spinner_item)
+        val stateAdapter = ArrayAdapter<StateItem>(this, R.layout.state_text_view, holidayConfigReader!!.states)
         stateSpinner.adapter = stateAdapter
         stateSpinner.onItemSelectedListener = this
+        if (selectedState == null) {
+            selectedState = stateSpinner.selectedItem as StateItem?
+        } else {
+            val pos = holidayConfigReader!!.states.indexOf(selectedState!!)
+            stateSpinner.setSelection(pos)
+        }
 
         // year selection
         initYearSelector()
     }
 
     override fun onItemSelected(parent: AdapterView<*>, view: View, pos: Int, id: Long) {
-        Log.d("MainActivity", parent.getItemAtPosition(pos).toString())
+        selectedState = parent.getItemAtPosition(pos) as StateItem
+        preferenceManager!!.setState(selectedState!!.key)
+        initHolidays()
     }
 
 
@@ -80,19 +112,43 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
     }
 
     /**
+     * Init the holiday list.
+     */
+    private fun initHolidays() {
+        var adapter = holidayView.adapter
+
+        if (adapter == null) {
+            adapter = HolidayAdapter(holidayCalculator!!.getHolidays(selectedYear, selectedState!!))
+            holidayView.adapter = adapter
+        } else {
+            (adapter as HolidayAdapter).holidays = holidayCalculator!!.getHolidays(selectedYear, selectedState!!)
+        }
+        adapter.notifyDataSetChanged()
+    }
+
+    /**
      * Init year selector to show years
      */
     private fun initYearSelector() {
         val years = mutableListOf<YearItem>()
+
+        if (selectedYear == -1) {
+            selectedYear = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                LocalDate.now().year
+            } else {
+                Calendar.getInstance().get(Calendar.YEAR)
+            }
+        }
         val currentYear = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             LocalDate.now().year
         } else {
             Calendar.getInstance().get(Calendar.YEAR)
         }
+
         var current: YearItem? = null
 
         for (i in currentYear - 4..currentYear + 4) {
-            if (i == currentYear) {
+            if (i == selectedYear) {
                 current = YearItem(i)
                 years.add(current)
             } else
@@ -111,9 +167,9 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
     }
 
     override fun onYearItemSelected(item: YearItem) {
-        Log.d("MainActivity", item.toString())
+        selectedYear = item.year
+        preferenceManager!!.setYear(selectedYear)
 
-        val adapter = HolidayAdapter(holidayCalculator!!.getHolidays(item.year))
-        holidayRv!!.adapter = adapter
+        initHolidays()
     }
 }

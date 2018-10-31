@@ -11,6 +11,6 @@ package de.micmun.android.deufeitage.model
  * @author MicMun
  * @version 1.0, 10.07.18
  */
-class StateItem(val name: String, val desc: String, val holidays: List<Holiday>) {
+data class StateItem(val key: String, val name: String) {
     override fun toString() = name
 }

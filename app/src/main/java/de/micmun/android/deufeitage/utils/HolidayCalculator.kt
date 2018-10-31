@@ -5,9 +5,8 @@
  */
 package de.micmun.android.deufeitage.utils
 
-import android.content.Context
-import de.micmun.android.deufeitage.R
 import de.micmun.android.deufeitage.model.Holiday
+import de.micmun.android.deufeitage.model.StateItem
 import java.util.*
 
 /**
@@ -16,30 +15,34 @@ import java.util.*
  * @author MicMun
  * @version 1.0, 07.08.18
  */
-class HolidayCalculator(private val context: Context) {
-    private val holidays = mutableListOf<Holiday>()
-
+class HolidayCalculator(private val holidays: List<Holiday> = emptyList()) {
     /**
      * Returns a list of holidays.
      *
      * @return list of holidays.
      */
-    fun getHolidays(year: Int): List<Holiday> {
+    fun getHolidays(year: Int, state: StateItem): List<Holiday> {
         calculate(year)
-        return holidays
+
+        val filtered = mutableListOf<Holiday>()
+
+        for (i in 0 until holidays.size) {
+            if (holidays[i].states.contains(state.key)) {
+                filtered.add(holidays[i])
+            }
+        }
+
+        return filtered
     }
 
     /**
      * Calculates the holidays.
      */
     private fun calculate(year: Int) {
-        holidays.clear()
-        val names = context.resources.getStringArray(R.array.names_of_holidays)
-
         val easterSunday = getEasterSunday(year)
 
-        for (i in 0 until names.size) {
-            val name = names[i]
+        for (i in 0 until holidays.size) {
+            val holiday = holidays[i]
             // Date of holiday
             val date: Calendar = when (i) {
                 0 -> GregorianCalendar(year, Calendar.JANUARY, 1, 0, 0, 0)
@@ -98,14 +101,7 @@ class HolidayCalculator(private val context: Context) {
                     gc
                 }
             }
-
-            // describtion of holiday
-            val desc: String = when (i) {
-                0 -> "Test"
-                3 -> "Easter sunday is the day of jesus christ reborn"
-                else -> "Test"
-            }
-            holidays.add(Holiday(name, date, desc))
+            holiday.datum = date
         }
     }
 

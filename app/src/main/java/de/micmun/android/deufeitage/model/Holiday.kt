@@ -14,7 +14,9 @@ import java.util.concurrent.TimeUnit
  * @author MicMun
  * @version 1.0, 10.07.18
  */
-data class Holiday(val name: String, val datum: Calendar, val desc: String) {
+data class Holiday(val id: Int, val name: String, val states: List<String>, val desc: String) {
+    var datum: Calendar = Calendar.getInstance()
+
     /**
      * Returns the number of days as difference to now.
      *
