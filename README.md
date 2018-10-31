@@ -8,11 +8,11 @@ Dieses GitHub Repository hostet den Code der Android-App _DeuFeiTage_. _DeuFeiTa
 
 ## Screenshots
 
-![Screenshot-States and Holidays](screen_deufeitage.png)
+![Screenshot](screen_deufeitage.png)
 
 ## Compatibility
 
-This app is compatible from sdk version 14 (Android 4.0) upward.
+This app is compatible from sdk version 23 (Android 6.0) upward.
 
 ## License
 
