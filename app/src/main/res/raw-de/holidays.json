@@ -310,7 +310,11 @@
       "Name": "Reformationstag",
       "States": [
         "BB",
+        "HB",
+        "HH",
         "MV",
+        "NI",
+        "SH",
         "SN",
         "ST",
         "TH"
