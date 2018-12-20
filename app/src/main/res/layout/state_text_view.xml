@@ -5,4 +5,4 @@
           android:layout_width="match_parent"
           android:layout_height="48dp"
           android:textColor="@color/colorPrimary"
-          android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+          android:textSize="@dimen/state_text_size"/>
