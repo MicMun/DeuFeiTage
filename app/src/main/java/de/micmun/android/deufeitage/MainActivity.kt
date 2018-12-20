@@ -122,7 +122,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         var adapter = holidayView.adapter
 
         if (adapter == null) {
-            adapter = HolidayAdapter(holidayCalculator!!.getHolidays(selectedYear, selectedState!!))
+            adapter = HolidayAdapter(this, holidayCalculator!!.getHolidays(selectedYear, selectedState!!))
             holidayView.adapter = adapter
         } else {
             (adapter as HolidayAdapter).holidays = holidayCalculator!!.getHolidays(selectedYear, selectedState!!)

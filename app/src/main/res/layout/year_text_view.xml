@@ -8,4 +8,4 @@
     android:background="@drawable/text_background_selector"
     android:clickable="true"
     android:focusable="true"
-    android:textSize="@dimen/year_text_size"/>
+    android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
