@@ -5,8 +5,8 @@
  */
 package de.micmun.android.deufeitage.adapter
 
+import android.content.Context
 import android.graphics.Typeface
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -23,7 +23,7 @@ import de.micmun.android.deufeitage.utils.DateUtility
  * @author MicMun
  * @version 1.0, 07.08.18
  */
-class HolidayAdapter(var holidays: List<Holiday>) :
+class HolidayAdapter(val context: Context, var holidays: List<Holiday>) :
         RecyclerView.Adapter<HolidayAdapter.HolidayViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolidayViewHolder {
         val linearLayout = LayoutInflater.from(parent.context)
@@ -33,15 +33,19 @@ class HolidayAdapter(var holidays: List<Holiday>) :
 
     override fun getItemCount(): Int = holidays.size + 1
 
+    /**
+     * @see RecyclerView.Adapter#onBindViewHolder
+     */
     override fun onBindViewHolder(holder: HolidayViewHolder, position: Int) {
         if (position == 0) {
-            holder.holidayDate.text = "Datum"
-            holder.holidayDate.setTypeface(null, Typeface.BOLD)
-            holder.holidayText.text = "Feiertag"
-            holder.holidayText.setTypeface(null, Typeface.BOLD)
+            holder.holidayDate.text = context.getString(R.string.title_date)
+            holder.holidayDate.setTextAppearance(R.style.TextAppearance_AppCompat_Body2)
+            holder.holidayText.text = context.getString(R.string.title_holiday)
+            holder.holidayText.setTextAppearance(R.style.TextAppearance_AppCompat_Body2)
             holder.holidayText.textAlignment = TextView.TEXT_ALIGNMENT_CENTER
-            holder.holidayDiff.text = "Differenz"
-            holder.holidayDiff.setTypeface(null, Typeface.BOLD)
+            holder.holidayDiff.text = context.getString(R.string.title_difference)
+            holder.holidayDiff.setTextAppearance(R.style.TextAppearance_AppCompat_Body2)
+
         } else {
             val holiday = holidays[position - 1]
             holder.holidayText.text = holiday.name
@@ -49,7 +53,7 @@ class HolidayAdapter(var holidays: List<Holiday>) :
             holder.holidayText.textAlignment = TextView.TEXT_ALIGNMENT_TEXT_START
             holder.holidayDate.text = DateUtility.getFormattedDate(holiday.datum)
             holder.holidayDate.setTypeface(null, Typeface.NORMAL)
-            holder.holidayDiff.text = "${holiday.getDiffToNow()} Tage"
+            holder.holidayDiff.text = context.getString(R.string.diff_text, holiday.getDiffToNow())
             holder.holidayDiff.setTypeface(null, Typeface.NORMAL)
             holder.holidayDesc.text = holiday.desc
 
@@ -59,11 +63,15 @@ class HolidayAdapter(var holidays: List<Holiday>) :
                 else
                     holder.descLayout.visibility = LinearLayout.GONE
             }
-
-            Log.d("HolidayAdapter", "Position = $position, Holiday = ${holiday.name}")
         }
     }
 
+    /**
+     * HolidayViewHolder for the views in a line.
+     *
+     * @param view root view of the line.
+     * @property holidayText textview of the holiday.
+     */
     class HolidayViewHolder(val view: ConstraintLayout) : RecyclerView.ViewHolder(view) {
         val holidayText: TextView = view.findViewById(R.id.holidayText)
         val holidayDate: TextView = view.findViewById(R.id.holidayDate)

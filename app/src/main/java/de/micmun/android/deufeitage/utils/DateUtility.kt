@@ -23,7 +23,13 @@ class DateUtility {
          * @return formatted date string.
          */
         fun getFormattedDate(date: Calendar): String {
-            val df = SimpleDateFormat("EE dd.MM.yyyy", Locale.getDefault())
+            var df = SimpleDateFormat("EE MM/dd/", Locale.getDefault())
+
+            if (Locale.getDefault() == Locale.GERMANY || Locale.getDefault() == Locale("de_AT") ||
+                    Locale.getDefault() == Locale("de_CH")) {
+                df = SimpleDateFormat("EE dd.MM.", Locale.getDefault())
+            }
+
             return df.format(date.time)
         }
     }

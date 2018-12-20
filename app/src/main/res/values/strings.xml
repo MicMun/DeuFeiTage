@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">DeuFeiTage</string>
+    <string name="title_date">Date</string>
+    <string name="title_holiday">Holiday</string>
+    <string name="title_difference">Difference</string>
+    <string name="diff_text">%d days</string>
 </resources>
