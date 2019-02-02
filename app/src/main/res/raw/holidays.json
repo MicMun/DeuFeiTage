@@ -386,6 +386,14 @@
         "TH"
       ],
       "Description": "Boxing Day is a holiday celebrated on the day after Christmas Day. It originated in the United Kingdom, and is celebrated in a number of countries that previously formed part of the British Empire. Boxing Day is on 26 December, although the attached bank holiday or public holiday may take place either on that day or two days later. In the liturgical calendar of Western Christianity, Boxing Day is the second day of Christmastide, and also Saint Stephen's Day. It is also celebrated as Saint Stephen's Day in Ireland and the Catalonia region of Spain. In some European countries, such as Hungary, Germany, Poland, the Netherlands, and Scandinavia, 26 December is celebrated as a Second Christmas Day."
+    },
+    {
+      "ID": 18,
+      "Name": "International Women's Day",
+      "States": [
+        "BE"
+      ],
+      "Description": "International Women's Day (IWD) is celebrated on March 8 every year. It is a focal point in the movement for women's rights. After the Socialist Party of America organised a Women's Day on February 28, 1909 in New York, the 1910 International Socialist Woman's Conference suggested a Women's Day be held annually. After women gained suffrage in Soviet Russia in 1917, March 8 became a national holiday there. The day was then predominantly celebrated by the socialist movement and communist countries until it was adopted in 1975 by the United Nations."
     }
   ]
 }

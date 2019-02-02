@@ -386,6 +386,14 @@
         "TH"
       ],
       "Description": "Der Zweite Weihnachtsfeiertag am 26. Dezember ist in den meisten europäischen Ländern ein gesetzlicher Feiertag zwischen den Jahren."
+    },
+    {
+      "ID": 18,
+      "Name": "Internationaler Frauentag",
+      "States": [
+        "BE"
+      ],
+      "Description":"Der Internationale Frauentag, Weltfrauentag, Frauenkampftag, Internationaler Frauenkampftag oder Frauentag ist ein Welttag, der am 8. März begangen wird. Er entstand als Initiative sozialistischer Organisationen in der Zeit vor dem Ersten Weltkrieg im Kampf um die Gleichberechtigung, das Wahlrecht für Frauen sowie die Emanzipation von Arbeiterinnen und fand erstmals am 19. März 1911 statt. Seit 1921 wird er jährlich am 8. März gefeiert. Die Vereinten Nationen erkoren ihn später als Tag der Vereinten Nationen für die Rechte der Frau und den Weltfrieden aus."
     }
   ]
 }

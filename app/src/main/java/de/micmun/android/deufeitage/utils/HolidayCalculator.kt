@@ -5,9 +5,11 @@
  */
 package de.micmun.android.deufeitage.utils
 
+import android.os.Build
 import de.micmun.android.deufeitage.model.Holiday
 import de.micmun.android.deufeitage.model.StateItem
 import java.util.*
+import java.util.stream.Collectors
 
 /**
  * Calculates the holidays.
@@ -32,7 +34,29 @@ class HolidayCalculator(private val holidays: List<Holiday> = emptyList()) {
             }
         }
 
-        return filtered
+        var sortedList: MutableList<Holiday> = filtered
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            sortedList = filtered.stream()
+                    .sorted { holiday1, holiday2 ->
+                        when {
+                            holiday1.datum.before(holiday2.datum) -> -1
+                            holiday1.datum.after(holiday2.datum) -> 1
+                            else -> 0
+                        }
+                    }.collect(Collectors.toList())
+        } else {
+            sortedList.sortWith(Comparator { holiday1, holiday2 ->
+                when {
+                    holiday1.datum.before(holiday2.datum) -> -1
+                    holiday1.datum.after(holiday2.datum) -> 1
+                    else -> 0
+                }
+            })
+        }
+
+
+        return sortedList
     }
 
     /**
@@ -92,6 +116,7 @@ class HolidayCalculator(private val holidays: List<Holiday> = emptyList()) {
                 14 -> getBubetday(year, easterSunday)
                 15 -> GregorianCalendar(year, Calendar.DECEMBER, 25, 0, 0, 0)
                 16 -> GregorianCalendar(year, Calendar.DECEMBER, 26, 0, 0, 0)
+                17 -> GregorianCalendar(year, Calendar.MARCH, 8, 0, 0, 0)
 
                 else -> {
                     val gc = GregorianCalendar.getInstance()
