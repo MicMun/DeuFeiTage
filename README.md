@@ -6,6 +6,13 @@ This GitHub repository hosts the code of the Android app _DeuFeiTage_. _DeuFeiTa
 
 Dieses GitHub Repository hostet den Code der Android-App _DeuFeiTage_. _DeuFeiTage_ zeigt die Feiertage für die einzelnen Bundesländer von Deutschland.
 
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"
+      alt="Get it on Google Play"
+      height="60">](https://play.google.com/store/apps/details?id=de.micmun.android.deufeitage)
+[<img src="https://f-droid.org/badge/get-it-on.png"
+      alt="Get it on F-Droid"
+      height="60">](https://f-droid.org/packages/de.micmun.android.deufeitage/)
+
 ## Screenshots
 
 <img src="screen_deufeitage.png" width="290" height="480">
