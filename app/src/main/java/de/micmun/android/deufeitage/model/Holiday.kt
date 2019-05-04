@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
  * Holiday data.
  *
  * @author MicMun
- * @version 1.0, 10.07.18
+ * @version 1.1, 04.05.19
  */
 data class Holiday(val id: Int, val name: String, val states: List<String>, val desc: String) {
     var datum: Calendar = Calendar.getInstance()
@@ -24,15 +24,13 @@ data class Holiday(val id: Int, val name: String, val states: List<String>, val 
      */
     fun getDiffToNow(): Int {
         val heute = GregorianCalendar.getInstance()
-        heute[Calendar.HOUR] = 0
+        heute[Calendar.HOUR_OF_DAY] = 0
         heute[Calendar.MINUTE] = 0
         heute[Calendar.SECOND] = 0
 
-        val comp = compareDate(heute, datum)
-
-        return when (comp) {
+        return when (compareDate(heute, datum)) {
             -1 -> (TimeUnit.DAYS.convert(heute.time.time - datum.time.time,
-                    TimeUnit.MILLISECONDS).toInt() + 1) * (-1)
+                    TimeUnit.MILLISECONDS).toInt()) * (-1)
             1 -> (TimeUnit.DAYS.convert(datum.time.time - heute.time.time,
                     TimeUnit.MILLISECONDS).toInt() + 1)
             else -> 0
