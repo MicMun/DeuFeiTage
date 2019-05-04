@@ -16,7 +16,7 @@ import org.json.JSONObject
  * Reads the config from json file.
  *
  * @author MicMun
- * @version 1.0, 15.10.18
+ * @version 1.1, 04.05.19
  */
 class HolidayConfigReader(context: Context) {
     private val keyStates = "States"
@@ -32,7 +32,7 @@ class HolidayConfigReader(context: Context) {
 
     init {
         val json = context.resources.openRawResource(R.raw.holidays).bufferedReader()
-                .use { it -> it.readText() }
+                .use { it.readText() }
         val jsonObject = JSONObject(json)
         val statesArray = jsonObject[keyStates] as JSONArray
 
