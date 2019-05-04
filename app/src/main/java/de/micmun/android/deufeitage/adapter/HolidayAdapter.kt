@@ -21,9 +21,9 @@ import de.micmun.android.deufeitage.utils.DateUtility
  * Adapter for holiday recycler view.
  *
  * @author MicMun
- * @version 1.0, 07.08.18
+ * @version 1.1, 04.05.19
  */
-class HolidayAdapter(val context: Context, var holidays: List<Holiday>) :
+class HolidayAdapter(private val context: Context, var holidays: List<Holiday>) :
         RecyclerView.Adapter<HolidayAdapter.HolidayViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HolidayViewHolder {
         val linearLayout = LayoutInflater.from(parent.context)
@@ -47,7 +47,9 @@ class HolidayAdapter(val context: Context, var holidays: List<Holiday>) :
             holder.holidayDiff.setTextAppearance(R.style.TextAppearance_AppCompat_Body2)
 
         } else {
+            val nextHoliday = DateUtility.getNextHoliday(holidays)
             val holiday = holidays[position - 1]
+
             holder.holidayText.text = holiday.name
             holder.holidayText.setTypeface(null, Typeface.NORMAL)
             holder.holidayText.textAlignment = TextView.TEXT_ALIGNMENT_TEXT_START
@@ -62,6 +64,14 @@ class HolidayAdapter(val context: Context, var holidays: List<Holiday>) :
                     holder.descLayout.visibility = LinearLayout.VISIBLE
                 else
                     holder.descLayout.visibility = LinearLayout.GONE
+            }
+
+            if (nextHoliday == holiday) {
+                holder.view.background = holder.view.context.resources
+                        .getDrawable(R.drawable.background_indicator_next, null)
+            } else {
+                holder.view.background = holder.view.context.resources
+                        .getDrawable(R.drawable.background_indicator_normal, null)
             }
         }
     }

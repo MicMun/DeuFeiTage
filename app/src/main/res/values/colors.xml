@@ -6,4 +6,6 @@
 
     <color name="colorMiddle">#FF0000</color>
     <color name="colorStart">#FFFF00</color>
+
+    <color name="highlightNextHoliday">#F5F6CE</color>
 </resources>

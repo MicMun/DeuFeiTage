@@ -5,6 +5,7 @@
  */
 package de.micmun.android.deufeitage.utils
 
+import de.micmun.android.deufeitage.model.Holiday
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -12,7 +13,7 @@ import java.util.*
  * Methods for date and time.
  *
  * @author MicMun
- * @version 1.0, 07.08.18
+ * @version 1.1, 04.05.2019
  */
 class DateUtility {
     companion object {
@@ -31,6 +32,17 @@ class DateUtility {
             }
 
             return df.format(date.time)
+        }
+
+        /**
+         * Returns the next coming holiday.
+         *
+         * @param holidays list of holidays.
+         * @return next coming holiday or <code>null</code>, if there is no holiday anymore in the
+         *         current year.
+         */
+        fun getNextHoliday(holidays: List<Holiday>): Holiday? {
+            return holidays.find { h -> h.getDiffToNow() >= 0 }
         }
     }
 }
