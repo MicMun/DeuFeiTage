@@ -15,7 +15,7 @@ import java.util.stream.Collectors
  * Calculates the holidays.
  *
  * @author MicMun
- * @version 1.0, 07.08.18
+ * @version 1.1, 09.07.19
  */
 class HolidayCalculator(private val holidays: List<Holiday> = emptyList()) {
     /**
@@ -26,18 +26,24 @@ class HolidayCalculator(private val holidays: List<Holiday> = emptyList()) {
     fun getHolidays(year: Int, state: StateItem): List<Holiday> {
         calculate(year)
 
-        val filtered = mutableListOf<Holiday>()
+        var sortedList: MutableList<Holiday> = mutableListOf()
 
-        for (i in 0 until holidays.size) {
-            if (holidays[i].states.contains(state.key)) {
-                filtered.add(holidays[i])
+        if (state.key == "AA") { // all holidays -> no filter
+            sortedList.addAll(holidays)
+        } else { // filter for state key
+            val filtered = mutableListOf<Holiday>()
+
+            for (i in 0 until holidays.size) {
+                if (holidays[i].states.contains(state.key)) {
+                    filtered.add(holidays[i])
+                }
             }
+            sortedList = filtered
         }
 
-        var sortedList: MutableList<Holiday> = filtered
-
+        // since Android N -> new way of sort
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            sortedList = filtered.stream()
+            sortedList = sortedList.stream()
                     .sorted { holiday1, holiday2 ->
                         when {
                             holiday1.datum.before(holiday2.datum) -> -1

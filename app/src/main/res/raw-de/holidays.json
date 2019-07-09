@@ -1,6 +1,14 @@
 {
   "States": [
     {
+      "KEY": "AA",
+      "VALUE": "Alle Feiertage"
+    },
+    {
+      "KEY": "DE",
+      "VALUE": "Bundeseinheitliche Feiertage"
+    },
+    {
       "KEY": "BW",
       "VALUE": "Baden-Württemberg"
     },
@@ -70,6 +78,7 @@
       "ID": 1,
       "Name": "Neujahr",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -103,6 +112,7 @@
       "ID": 3,
       "Name": "Karfreitag",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -126,6 +136,7 @@
       "ID": 4,
       "Name": "Ostersonntag",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -149,6 +160,7 @@
       "ID": 5,
       "Name": "Ostermontag",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -172,6 +184,7 @@
       "ID": 6,
       "Name": "Tag der Arbeit",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -195,6 +208,7 @@
       "ID": 7,
       "Name": "Christi Himmelfahrt",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -218,6 +232,7 @@
       "ID": 8,
       "Name": "Pfingstsonntag",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -241,6 +256,7 @@
       "ID": 9,
       "Name": "Pfingstmontag",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -286,6 +302,7 @@
       "ID": 12,
       "Name": "Tag der dt. Einheit",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -345,6 +362,7 @@
       "ID": 16,
       "Name": "1. Weihnachtsfeiertag",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -368,6 +386,7 @@
       "ID": 17,
       "Name": "2. Weihnachtsfeiertag",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -393,7 +412,7 @@
       "States": [
         "BE"
       ],
-      "Description":"Der Internationale Frauentag, Weltfrauentag, Frauenkampftag, Internationaler Frauenkampftag oder Frauentag ist ein Welttag, der am 8. März begangen wird. Er entstand als Initiative sozialistischer Organisationen in der Zeit vor dem Ersten Weltkrieg im Kampf um die Gleichberechtigung, das Wahlrecht für Frauen sowie die Emanzipation von Arbeiterinnen und fand erstmals am 19. März 1911 statt. Seit 1921 wird er jährlich am 8. März gefeiert. Die Vereinten Nationen erkoren ihn später als Tag der Vereinten Nationen für die Rechte der Frau und den Weltfrieden aus."
+      "Description": "Der Internationale Frauentag, Weltfrauentag, Frauenkampftag, Internationaler Frauenkampftag oder Frauentag ist ein Welttag, der am 8. März begangen wird. Er entstand als Initiative sozialistischer Organisationen in der Zeit vor dem Ersten Weltkrieg im Kampf um die Gleichberechtigung, das Wahlrecht für Frauen sowie die Emanzipation von Arbeiterinnen und fand erstmals am 19. März 1911 statt. Seit 1921 wird er jährlich am 8. März gefeiert. Die Vereinten Nationen erkoren ihn später als Tag der Vereinten Nationen für die Rechte der Frau und den Weltfrieden aus."
     }
   ]
 }

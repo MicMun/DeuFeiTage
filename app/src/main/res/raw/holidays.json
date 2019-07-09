@@ -1,6 +1,14 @@
 {
   "States": [
     {
+      "KEY": "AA",
+      "VALUE": "All holidays"
+    },
+    {
+      "KEY": "DE",
+      "VALUE": "Common holidays"
+    },
+    {
       "KEY": "BW",
       "VALUE": "Baden-Württemberg"
     },
@@ -70,6 +78,7 @@
       "ID": 1,
       "Name": "New Year's Day",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -103,6 +112,7 @@
       "ID": 3,
       "Name": "Good Friday",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -126,6 +136,7 @@
       "ID": 4,
       "Name": "Easter Sunday",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -149,6 +160,7 @@
       "ID": 5,
       "Name": "Easter Monday",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -172,6 +184,7 @@
       "ID": 6,
       "Name": "Labour Day",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -195,6 +208,7 @@
       "ID": 7,
       "Name": "Ascension Day",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -218,6 +232,7 @@
       "ID": 8,
       "Name": "Whit Sunday",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -241,6 +256,7 @@
       "ID": 9,
       "Name": "Whit Monday",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -286,6 +302,7 @@
       "ID": 12,
       "Name": "Day of German Unity",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -345,6 +362,7 @@
       "ID": 16,
       "Name": "Christmas Day",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",
@@ -368,6 +386,7 @@
       "ID": 17,
       "Name": "Boxing Day",
       "States": [
+        "DE",
         "BW",
         "BY",
         "BE",

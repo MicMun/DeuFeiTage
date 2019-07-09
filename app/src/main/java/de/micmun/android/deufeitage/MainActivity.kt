@@ -28,7 +28,7 @@ import java.util.*
  * MainActivity of the app.
  *
  * @author MicMun
- * @version 1.0, 07.08.18
+ * @version 1.1, 09.07.19
  */
 class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         YearViewHolder.OnYearItemSelectedListener {
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
 
     private fun initActivity() {
         // state selection
-        val stateAdapter = ArrayAdapter<StateItem>(this, R.layout.state_text_view, holidayConfigReader!!.states)
+        val stateAdapter = ArrayAdapter(this, R.layout.state_text_view, holidayConfigReader!!.states)
         stateSpinner.adapter = stateAdapter
         stateSpinner.onItemSelectedListener = this
         if (selectedState == null) {
